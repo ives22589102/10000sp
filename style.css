@@ -1,5 +1,3 @@
-/* File: style.css */
-
 /* --- 全域設定與變數 --- */
 :root {
   --gold: #b9a67a;
@@ -33,7 +31,7 @@ body {
 }
 
 /* ★新增: 通用 visually-hidden class ★ */
-/* 讓內容在視覺上消失，但對 SEO 和螢幕閱讀器保持可見 */
+/* 讓內容在視覺上消失,但對SEO 和螢幕閱讀器保持可見 */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -55,9 +53,7 @@ body {
   height: 100vh;
   z-index: -1;
   /* 確保背景在最底層 */
-  background-image:
-      radial-gradient(circle at center, rgba(173, 173, 173, 0.45) 0%, var(--dark-bg) 99%),
-      url('./img/BG.jpg');
+  background-image: radial-gradient(circle at center, rgba(173, 173, 173, 0.45) 0%, var(--dark-bg) 99%), url('./img/BG.jpg');
   background-size: cover;
   background-position: center;
   transform: scale(1);
@@ -154,28 +150,27 @@ section {
 /* --- 當標題容器內是圖片時的樣式調整 --- */
 .section-title.image-title {
   padding-bottom: 0;
-  /* 移除為文字設計的底部留白 */
 }
 
+/* 移除為文字設計的底部留白 */
 .section-title.image-title::after {
   display: none;
   /* 隱藏為文字設計的金色底線 */
 }
 
-/* 標題圖片本身的樣式 */
+/* 標題圖片本身的樣式*/
 .section-title-image {
   display: block;
-  /* 讓圖片變成區塊元素，才能使用 margin auto 置中 */
+  /* 讓圖片變成區塊元素,才能使用 margin auto 置中 */
   max-width: 1000px;
-  /* 設定圖片最大寬度，避免在電腦大螢幕上過大 */
+  /* 設定圖片 最大寬度,避免在電腦大螢幕上過大 */
   width: 100%;
-  /* 讓圖片在小螢幕上可以縮放 */
+  /* 讓圖片在小螢幕上可以縮放*/
   height: auto;
-  /* 保持圖片的原始長寬比 */
+  /* 保持圖片的原始長寬比*/
   margin: 0 auto;
   /* 讓圖片水平置中 */
 }
-
 
 /* --- 通用卡片樣式 --- */
 .event-card {
@@ -199,23 +194,16 @@ section {
   width: 100%;
   z-index: 1000;
   padding: 15px 0;
-  background-color: rgba(255, 255, 255, 0);
-  /* 保留深色底 */
-  background-image: linear-gradient(180deg, rgb(114, 101, 83), rgb(98, 89, 78), rgb(82, 72, 59), rgba(35, 35, 35, 0.836));
+  background-color: rgba(20, 20, 20, 0.7);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(var(--gold-rgb), 0.2);
+  transition: background-color 0.3s ease;
 }
 
 .sticky-nav .container {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.nav-logo {
-  font-size: 1.5rem;
-  font-weight: 900;
-  color: var(--text-light);
-  text-decoration: none;
 }
 
 .main-nav ul {
@@ -234,18 +222,32 @@ section {
   padding: 10px 15px;
   border-radius: 6px;
   transition: all 0.3s ease;
+  position: relative;
+}
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--gold-bright);
+  transition: width 0.3s ease;
 }
 
 .main-nav a:hover {
-  background-color: #b3926e; /* 改為與隊長徽章相同的顏色 */
-  color: var(--text-dark);
-  box-shadow: none; /* 移除陰影讓風格更統一 */
+  color: var(--gold-bright);
 }
+.main-nav a:hover::after {
+  width: 80%;
+}
+
 
 /* --- 區塊1: Hero Banner --- */
 #hero {
   padding-top: 120px;
-  /* 增加空間以避免被導覽列擋住 */
+  /* 增加空間以避免被導覽列擋住*/
   padding-bottom: 60px;
   text-align: center;
 }
@@ -1771,4 +1773,216 @@ main a:not(.cta-button):not(.step1-background-link):not(.step2-background-link):
 }
 .social-links a:hover {
   color: #ffffff;
+}
+
+/* ++ [新增] 漢堡選單 與 手機版導覽列樣式 ++ */
+.mobile-nav-toggle {
+  display: none; /* 桌機預設隱藏 */
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 10px;
+}
+.mobile-nav-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-light);
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+.mobile-nav, .mobile-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+.mobile-nav-overlay {
+  background-color: rgba(0,0,0,0.6);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.mobile-nav-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+.mobile-nav {
+  background-color: rgba(193, 122, 80, 0.6);
+  width: 80%;
+  max-width: 300px;
+  transform: translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  display: flex;
+  flex-direction: column;
+  padding: 80px 20px 20px;
+  z-index: 1001;
+}
+.mobile-nav.is-open {
+  transform: translateX(0);
+}
+.mobile-nav-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 2.5rem;
+  line-height: 1;
+  background: none;
+  border: none;
+  color: var(--gold);
+  cursor: pointer;
+}
+.mobile-nav ul {
+  list-style: none;
+  padding: 0;
+}
+.mobile-nav li {
+  margin-bottom: 10px;
+}
+.mobile-nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 15px 10px;
+  display: block;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+.mobile-nav a:hover {
+  background-color: rgba(var(--gold-rgb), 0.1);
+}
+
+/* --- ★★★ RWD 優化區塊 ★★★ --- */
+
+/* 平板尺寸 (992px 以下) */
+@media (max-width: 992px) {
+  .main-nav {
+      display: none; /* 隱藏桌機版導覽 */
+  }
+  .mobile-nav-toggle {
+      display: block; /* 顯示漢堡選單按鈕 */
+  }
+  .sticky-nav .container {
+      justify-content: flex-end; /* 將按鈕靠右 */
+  }
+  .static-product-grid {
+      grid-template-columns: 1fr;
+      gap: 50px;
+  }
+  .static-product-grid .product-card.active,
+  .static-product-grid .product-card:hover {
+      transform: none; /* 在觸控裝置上移除 hover 放大效果 */
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* 大型手機 & 小型平板 (768px 以下) */
+@media (max-width: 768px) {
+  section {
+      padding: 80px 0;
+  }
+  .section-title {
+      font-size: 2.2rem;
+      margin-bottom: 60px;
+  }
+  #hero {
+      padding-top: 100px;
+  }
+  .steps-grid-new {
+      grid-template-columns: 1fr;
+      gap: 80px;
+  }
+  .step-notes-section {
+      width: 100%;
+      margin: 0;
+  }
+  .pba-grid {
+      grid-template-columns: 1fr;
+  }
+  .prize-overlay-image {
+      width: 90%; /* 讓獎品文字在手機上更清晰 */
+  }
+}
+
+/* 標準手機尺寸 (600px 以下) */
+@media (max-width: 600px) {
+  .product-list-header {
+      display: none; /* 隱藏優惠列表標頭 */
+  }
+  .product-list-table li {
+      grid-template-columns: 1fr; /* 改為單欄 */
+      gap: 8px;
+      padding: 15px;
+      text-align: left; /* 文字靠左 */
+  }
+  .product-list-table .product-price {
+      justify-content: flex-start; /* 價格也靠左 */
+      text-align: left;
+  }
+  .product-list-header .header-title:last-child,
+  .product-list-table .product-price {
+      text-align: left; /* 價格靠左 */
+  }
+}
+
+/* 小型手機尺寸 (480px 以下) */
+@media (max-width: 480px) {
+  section {
+      padding: 60px 0;
+  }
+  .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 40px;
+  }
+  .tab-button, .filter-button {
+      padding: 10px 15px;
+      font-size: 0.9rem;
+  }
+  .category-filters {
+      width: 100%;
+      justify-content: center;
+  }
+  .product-swiper .swiper-slide {
+      width: 300px; /* 稍微縮小輪播卡片寬度 */
+  }
+  .bonus-description {
+      font-size: 1rem;
+  }
+  .modal-content {
+      padding: 30px 20px;
+  }
+}
+
+/* --- ++ [新增] 修正手機版頁籤/篩選器換行問題 ++ --- */
+@media (max-width: 768px) {
+  .tab-buttons,
+  .category-filters {
+      flex-wrap: wrap; /* 核心：允許多行換行 */
+      border-radius: 12px; /* 調整為較方形的圓角以適應多行 */
+      padding: 10px;
+      justify-content: center; /* 讓按鈕在容器內置中 */
+  }
+
+  /* 移除無法適應換行的滑塊特效 */
+  .tab-buttons::before,
+  .category-filters::before {
+      display: none; 
+  }
+
+  /* 為換行後的按鈕增加間距 */
+  .tab-button,
+  .filter-button {
+      margin: 5px;
+  }
+
+  /* 當滑塊移除後，直接為 active 的按鈕加上背景，以突顯選中狀態 */
+  .tab-button.active,
+  .filter-button.active {
+      background-color: var(--gold);
+      color: var(--text-dark);
+      border-radius: 50px; /* 讓 active 的按鈕保持膠囊形狀 */
+  }
 }
