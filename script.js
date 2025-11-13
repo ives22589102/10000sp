@@ -39,20 +39,18 @@ document.addEventListener('DOMContentLoaded', function() {
      * Swiper 輪播功能初始化
      **************************************************************************/
 
-        // ★【最終修正的核心】★
-    // 建立一個極其簡單且穩定的 z-index 更新函式，解決 coverflow 點擊問題
+       
     const updateCoverflowZIndex = (swiper) => {
-        // 先重設所有卡片的 z-index，避免舊狀態殘留
+     
         swiper.slides.forEach(slide => {
             slide.style.zIndex = 0;
         });
 
-        // 根據 Swiper 提供的 class 來設定 z-index，這是最可靠的方式
-        // 中間的 z-index 最高 (★修正點:設為2)
+        
         if (swiper.el.querySelector('.swiper-slide-active')) {
             swiper.el.querySelector('.swiper-slide-active').style.zIndex = 2;
         }
-        // 左右兩邊的次之，確保它們能被點擊 (★修正點:設為1)
+       
         if (swiper.el.querySelector('.swiper-slide-prev')) {
             swiper.el.querySelector('.swiper-slide-prev').style.zIndex = 1;
         }
@@ -66,15 +64,15 @@ document.addEventListener('DOMContentLoaded', function() {
         effect: 'coverflow',
         grabCursor: true,
         centeredSlides: true,
-        slidesPerView: 'auto', // 建議:設為 'auto' 或 3，以適應不同寬度
+        slidesPerView: 'auto',
         loop: true,
         slideToClickedSlide: true,
         coverflowEffect: {
-            rotate: 10, // 將旋轉角度減小，讓側邊卡片不要那麼斜
-            stretch: 0, // 將卡片間的水平拉伸歸零，避免它們分得太開
-            depth: 80, // 稍微減少Z軸深度，讓卡片在視覺上更緊湊
+            rotate: 10, 
+            stretch: 0,
+            depth: 80, 
             modifier: 1,
-            scale: 0.9, // 側邊卡片的縮放比例
+            scale: 0.9, 
             slideShadows: false,
         },
         // 使用最穩定的事件來觸發 z-index 更新

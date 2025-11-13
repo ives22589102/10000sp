@@ -1,9 +1,7 @@
-/* --- 全域設定與變數 --- */
 :root {
   --gold: #b9a67a;
   --gold-rgb: 221, 187, 85;
   --gold-bright: #F5E4A2;
-  /* 用於高對比度標題 */
   --dark-bg: #000000;
   --card-bg: rgba(28, 24, 40, 0.85);
   --card-bg-solid: #1C1828;
@@ -11,7 +9,6 @@
   --text-dark: #120f1a;
 }
 
-/* --- 基本樣式重設 --- */
 * {
   margin: 0;
   padding: 0;
@@ -27,11 +24,8 @@ body {
   background-color: var(--dark-bg);
   color: var(--text-light);
   overflow-x: hidden;
-  /* 防止水平滾動條出現 */
 }
 
-/* ★新增: 通用 visually-hidden class ★ */
-/* 讓內容在視覺上消失,但對SEO 和螢幕閱讀器保持可見 */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -44,7 +38,6 @@ body {
   border: 0;
 }
 
-/* --- 滾動視差背景樣式 --- */
 #parallax-bg {
   position: fixed;
   top: 0;
@@ -52,7 +45,6 @@ body {
   width: 100%;
   height: 100vh;
   z-index: -1;
-  /* 確保背景在最底層 */
   background-image: radial-gradient(circle at center, rgba(173, 173, 173, 0.45) 0%, var(--dark-bg) 99%), url('./img/BG.jpg');
   background-size: cover;
   background-position: center;
@@ -60,7 +52,6 @@ body {
   transition: transform 0.2s ease-out;
 }
 
-/* --- 主要內容容器 --- */
 main {
   position: relative;
   z-index: 1;
@@ -74,7 +65,6 @@ main {
 
 .container-wide {
   max-width: 100%;
-  /* Hero banner 可以滿版 */
   padding: 0 20px;
 }
 
@@ -83,7 +73,6 @@ section {
   position: relative;
 }
 
-/* --- 按鈕樣式 --- */
 .cta-button {
   display: inline-block;
   padding: 12px 30px;
@@ -116,7 +105,6 @@ section {
   color: var(--text-dark);
 }
 
-/* --- 標題樣式 --- */
 .section-title {
   text-align: center;
   font-size: 2.8rem;
@@ -147,32 +135,21 @@ section {
   box-shadow: 0 0 15px rgba(var(--gold-rgb), 0.7);
 }
 
-/* --- 當標題容器內是圖片時的樣式調整 --- */
 .section-title.image-title {
   padding-bottom: 0;
 }
-
-/* 移除為文字設計的底部留白 */
 .section-title.image-title::after {
   display: none;
-  /* 隱藏為文字設計的金色底線 */
 }
 
-/* 標題圖片本身的樣式*/
 .section-title-image {
   display: block;
-  /* 讓圖片變成區塊元素,才能使用 margin auto 置中 */
   max-width: 1000px;
-  /* 設定圖片 最大寬度,避免在電腦大螢幕上過大 */
   width: 100%;
-  /* 讓圖片在小螢幕上可以縮放*/
   height: auto;
-  /* 保持圖片的原始長寬比*/
   margin: 0 auto;
-  /* 讓圖片水平置中 */
 }
 
-/* --- 通用卡片樣式 --- */
 .event-card {
   background: var(--card-bg);
   border: 1px solid rgba(var(--gold-rgb), 0.3);
@@ -186,7 +163,6 @@ section {
   border-color: rgba(var(--gold-rgb), 0.7);
 }
 
-/* --- 導覽列樣式 --- */
 .sticky-nav {
   position: fixed;
   top: 0;
@@ -243,11 +219,8 @@ section {
   width: 80%;
 }
 
-
-/* --- 區塊1: Hero Banner --- */
 #hero {
   padding-top: 120px;
-  /* 增加空間以避免被導覽列擋住*/
   padding-bottom: 60px;
   text-align: center;
 }
@@ -263,7 +236,6 @@ section {
   border: 2px solid rgba(var(--gold-rgb), 0.2);
 }
 
-/* --- 區塊2 & 5: 頁籤 (Tabs) 通用樣式 --- */
 .tabs-container,
 #product-deals .container {
   text-align: center;
@@ -292,7 +264,7 @@ section {
   transition: color 0.4s ease;
   z-index: 2;
   white-space: nowrap;
-  flex: 1 1 0; /* 讓按鈕平均分配容器寬度 */
+  flex: 1 1 0;
 }
 
 .tab-button:hover,
@@ -310,7 +282,6 @@ section {
   color: var(--text-dark);
 }
 
-/* ★優化: 通用化頁籤滑塊樣式 */
 .tab-buttons::before,
 .category-filters::before {
   content: '';
@@ -319,7 +290,6 @@ section {
   left: 5px;
   height: calc(100% - 10px);
   width: calc(var(--deals-slider-width) - 2px);
-  /* JS 會設定這個值 */
   background: linear-gradient(160deg, #F9E08A, #A57C2A);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5), inset 0 1px 1px #F9E08A;
   border-radius: 50px;
@@ -328,14 +298,13 @@ section {
   z-index: 1;
 }
 
-/* 新增：專門為雙按鈕頁籤設計的規則 */
 .tab-buttons::before {
   content: '';
   position: absolute;
   top: 5px;
   left: 5px;
   height: calc(100% - 10px);
-  width: calc(var(--deals-slider-width) - 5px); /* 在這裡使用特殊修正 */
+  width: calc(var(--deals-slider-width) - 5px);
   background: linear-gradient(160deg, #F9E08A, #A57C2A);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5), inset 0 1px 1px #F9E08A;
   border-radius: 50px;
@@ -352,15 +321,12 @@ section {
   display: block;
 }
 
-/* --- Swiper 輪播樣式 (通用) --- */
 .product-swiper {
   width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
   overflow: visible;
-  /* 讓卡片陰影能完整顯示 */
   transform: translateZ(0);
-  /* 硬體加速 */
 }
 
 .product-swiper .swiper-slide {
@@ -369,7 +335,6 @@ section {
   width: 400px;
 }
 
-/* ★優化: 統一所有 Swiper 箭頭樣式 */
 .product-swiper .swiper-button-next,
 .product-swiper .swiper-button-prev {
   position: absolute;
@@ -384,7 +349,6 @@ section {
   justify-content: center;
   transition: transform 0.2s ease;
   color: var(--gold);
-  /* 設定父容器顏色 */
 }
 
 .product-swiper .swiper-button-next:hover,
@@ -396,18 +360,14 @@ section {
 .swiper-button-prev::after {
   font-family: swiper-icons;
   font-size: 28px !important;
-  /* ★確保大小正確 */
   font-weight: bold;
   color: var(--gold) !important;
-  /* ★ 強制箭頭圖標為金色 */
   text-transform: none !important;
   letter-spacing: 0;
   font-variant: initial;
   line-height: 1;
 }
 
-
-/* --- 萬元精選區塊產品卡片 --- */
 .product-card {
   padding: 0;
   overflow: hidden;
@@ -425,7 +385,6 @@ section {
   display: block;
 }
 
-/* 漸層遮罩 */
 .product-card::after {
   content: '';
   position: absolute;
@@ -476,7 +435,6 @@ section {
   z-index: 3;
 }
 
-/* --- 區塊3: 揪團攻略區 (全新排版) --- */
 .prize-info-card.image-fill {
   border: 1px solid rgba(var(--gold-rgb), 0.3);
   border-radius: 12px;
@@ -507,8 +465,6 @@ section {
   z-index: -1;
 }
 
-/* 獎品資訊卡上的文字疊圖樣式 (放大並增加遮罩) */
-/* 1. 為影片容器加上模糊(毛玻璃)效果 */
 .prize-info-card.image-fill::before {
   content: '';
   position: absolute;
@@ -517,14 +473,10 @@ section {
   width: 100%;
   height: 100%;
   -webkit-backdrop-filter: blur(4px);
-  /* 針對 Safari 的相容性寫法 */
   backdrop-filter: blur(4px);
-  /* 主要的模糊效果 */
   z-index: 1;
-  /* 確保遮罩在影片之上，但在文字之下 */
 }
 
-/* 2. 放大文字疊圖 */
 .prize-overlay-image {
   position: absolute;
   top: 50%;
@@ -541,9 +493,7 @@ section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: stretch;
-  /* 等高 */
   gap: 80px 40px;
-  /* 增加垂直間距 */
   position: relative;
   margin-top: 80px;
 }
@@ -556,10 +506,8 @@ section {
 .step-card {
   position: relative;
   padding: 30px;
-  /* 增加內距，讓 header 有空間 */
   display: block;
   background: none;
-  /* 移除背景，由 content 負責 */
   border: none;
   box-shadow: none;
   backdrop-filter: none;
@@ -613,7 +561,6 @@ section {
   height: 100%;
   box-sizing: border-box;
   padding: 60px 30px 30px;
-  /* 增加頂部 padding */
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -621,19 +568,12 @@ section {
   transition: all 0.3s ease;
 }
 
-/* 統一漸層背景 */
 .step-content,
 .pba-column.event-card {
-  /* 1. 設定深色基底，這將是漸層頂部的顏色 */
   background-color: #00000058;
-  /* 深炭灰色 */
-  /* 2. 疊加從底部金色到中部透明的線性漸層 */
   background-image: linear-gradient(to top,
-          /* 方向:由下至上 */
           rgba(38, 33, 27, 0.709) 0%,
-          /* 底部的金色光暈 */
           transparent 60%
-          /* 漸層結束的位置 */
       );
 }
 
@@ -646,24 +586,18 @@ section {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-
-/* --- 揪團步驟區 (Step 1 & 2) 全新統一排版 --- */
-/* 1. 設定 step-content 的 padding為0，讓背景圖能填滿 */
 .steps-grid-new .step-card .step-content {
   padding: 0;
   justify-content: initial;
 }
 
-/* 2. 為兩個步驟的背景連結 <a> 標籤設定通用樣式 */
 .step1-background-link,
 .step2-background-link {
   display: block;
   width: 100%;
   height: 100%;
   aspect-ratio: 2.5 / 1;
-  /* 設定長寬比，避免高度塌陷 */
   position: relative;
-  /* 作為內部 img 的定位基準點 */
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -671,7 +605,6 @@ section {
   border-radius: 12px;
 }
 
-/* 3. 分別設定兩個步驟的背景圖 */
 .step1-background-link {
   background-image: url('./img/step1bg.png');
 }
@@ -680,71 +613,54 @@ section {
   background-image: url('./img/step2bg.png');
 }
 
-/* 4. 為所有疊加的按鈕圖片 <img> 設定通用樣式 */
 .step1-background-link img,
 .step2-background-link img {
   position: absolute;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
   pointer-events: none;
-  /* 讓滑鼠事件穿透圖片 */
   user-select: none;
-  /* 禁止選取圖片 */
 }
 
-/* 5.【專門為 Step 1 的按鈕設定位置】*/
 .step1-background-link .overlay-normal,
 .step1-background-link .overlay-hover {
   top: 22%;
   left: 22%;
   width: 45%;
   transform: translate(0, 0);
-  /* Step 1不需置中校正 */
 }
 
-/* 6.【專門為 Step 2 的按鈕設定位置】*/
 .step2-background-link .overlay-normal,
 .step2-background-link .overlay-hover {
   top: 55%;
   left: 50%;
   width: 45%;
   transform: translate(-50%, -50%);
-  /* Step 2 使用置中校正 */
 }
 
-/* 7. 為兩個步驟設定統一的 Hover 效果 */
 .step1-background-link .overlay-hover,
 .step2-background-link .overlay-hover {
   opacity: 0;
-  /* 預設隱藏 hover 圖 */
 }
 
 .step1-background-link:hover .overlay-normal,
 .step2-background-link:hover .overlay-normal {
   opacity: 0;
-  /* hover 時隱藏正常圖 */
 }
 
 .step1-background-link:hover .overlay-hover,
 .step2-background-link:hover .overlay-hover {
   opacity: 1;
-  /* hover 時顯示 hover 圖 */
 }
 
-/* 8. 統一的 Hover 放大效果 */
 .step1-background-link:hover img,
 .step2-background-link:hover img {
   transform: scale(1.08);
-  /* 放大效果應用於圖片本身 */
 }
 
-/* 9. 修正 Step 2因置中校正導致的放大偏移 */
 .step2-background-link:hover img {
   transform: translate(-50%, -50%) scale(1.08);
 }
 
-
-/* --- 按鈕上下浮動動畫 --- */
-/* A. 定義動畫關鍵影格 */
 @keyframes floatAnimation {
   0% {
       transform: translateY(0);
@@ -754,19 +670,16 @@ section {
       transform: translateY(-6px);
   }
 
-  /* 向上浮動 6px */
   100% {
       transform: translateY(0);
   }
 }
 
-/* B. 將動畫應用於兩個步驟的正常狀態按鈕 */
 .step1-background-link .overlay-normal,
 .step2-background-link .overlay-normal {
   animation: floatAnimation 1.5s ease-in-out infinite;
 }
 
-/* C. 修正 Step 2因置中校正導致的動畫偏移 */
 @keyframes floatAnimationStep2 {
   0% {
       transform: translate(-50%, -50%) translateY(0);
@@ -776,7 +689,6 @@ section {
       transform: translate(-50%, -50%) translateY(-6px);
   }
 
-  /* 向上浮動 6px */
   100% {
       transform: translate(-50%, -50%) translateY(0);
   }
@@ -784,10 +696,8 @@ section {
 
 .step2-background-link .overlay-normal {
   animation-name: floatAnimationStep2;
-  /* 使用專為 Step 2 設計的動畫 */
 }
 
-/* --- 步驟下方專屬說明欄位樣式 --- */
 .step-notes-section {
   width: 80%;
   margin-left: auto;
@@ -796,50 +706,41 @@ section {
   border: 1px solid rgba(var(--gold-rgb), 0.2);
   border-radius: 12px;
   background-color: rgba(0, 0, 0, 0.2);
-  /* 保留基底色 */
   text-align: center;
   background-image: linear-gradient(to top, rgba(38, 33, 27, 0.709) 0%, transparent 60%);
   display: flex;
   flex-direction: column;
 }
 
-/* 主標題 h5 */
 .step-notes-section h5 {
   font-size: 1.2rem;
   font-weight: 700;
   color: rgb(204, 190, 169);
   margin-bottom: 20px;
-  /* 增加與下方內容的間距 */
   text-align: center;
-  /* 讓標題置中 */
 }
 
-/* 副標題 h6 */
 .step-notes-section h6 {
   font-size: 1rem;
   font-weight: 700;
   color: rgb(204, 190, 169);
-  /* 沿用 h5 顏色 */
   margin: 30px 10% 15px 10%;
   border-bottom: 1px solid rgba(var(--gold-rgb), 0.2);
   padding-bottom: 10px;
 }
 
-/* 一般段落 p */
 .step-notes-section p {
   font-size: 0.9rem;
   color: rgb(177, 177, 177);
   line-height: 1.8;
 }
 
-/* 列表 ul */
 .step-notes-section ul {
   list-style: none;
   padding-left: 0;
   margin: 0 10% 15px 10%;
 }
 
-/* 列表項目 li */
 .step-notes-section li {
   display: flex;
   align-items: flex-start;
@@ -861,11 +762,9 @@ section {
   flex-shrink: 0;
 }
 
-/* 表格樣式 */
 .step-notes-section table {
   width: 80%;
   margin: 15px auto;
-  /* 讓表格本身置中 */
   border-collapse: collapse;
   font-size: 0.9rem;
 }
@@ -879,7 +778,6 @@ section {
 
 .step-notes-section th {
   background-color: rgba(38, 33, 27, 0.5);
-  /* 使用漸層的深色部分 */
   color: rgb(204, 190, 169);
   font-weight: 700;
 }
@@ -888,15 +786,12 @@ section {
   color: rgb(177, 177, 177);
 }
 
-/* ++ 新增: 讓揪團辦法的表格置中 ++ */
  .step-notes-section table {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 15px; /* 增加與上方標題的間距 */
+  margin-top: 15px;
 }
 
-/* --- 邀請碼說明區塊強調樣式 --- */
-/* 福利層級容器 */
 .step-notes-section .reward-tier {
   margin-bottom: 20px;
   padding: 15px;
@@ -904,19 +799,15 @@ section {
   border: 1px solid rgba(var(--gold-rgb), 0.1);
   border-radius: 8px;
   margin-left: 10%;
-  /* 維持縮排風格 */
   margin-right: 10%;
 }
 
 .step-notes-section .reward-tier p {
   margin: 0;
-  /* 移除段落的預設邊距 */
   font-size: 1rem;
-  /* 稍微放大字體 */
   color: #ddd;
 }
 
-/* 身份徽章 */
 .step-notes-section .tier-badge {
   display: inline-block;
   padding: 3px 10px;
@@ -926,19 +817,16 @@ section {
   margin-bottom: 10px;
 }
 
-/* 隊員徽章樣式 */
 .step-notes-section .tier-badge.player {
   background-color: #b3926e;
   color: var(--text-dark);
 }
 
-/* 隊長徽章樣式 */
 .step-notes-section .tier-badge.leader {
   background-color: #b3926e;
   color: var(--text-dark);
 }
 
-/* 補充說明樣式 */
 .step-notes-section .solo-note {
   font-size: 0.85rem;
   color: #999;
@@ -946,22 +834,19 @@ section {
   margin-bottom: 25px;
 }
 
-/* 強調文字樣式*/
 .step-notes-section .highlight {
-  color: #fff; /* 維持文字高亮白色 */
+  color: #fff;
   font-size: 1.2em;
   font-weight: 900;
   background-image: linear-gradient(rgba(128, 88, 47, 0.6), rgba(135, 89, 45, 0.6));
   background-repeat: no-repeat;
-  background-size: 100% 35%; /* 底線寬度100%，高度佔文字的35% */
-  background-position: 0 100%; /* 從底部開始定位 */
-  padding: 0 2px; /* 微調左右邊距，讓底線比文字稍寬一點 */
+  background-size: 100% 35%;
+  background-position: 0 100%;
+  padding: 0 2px;
 }
 
-/* --- 揪團攻略區備註摺疊與等高樣式 --- */
 .remarks-wrapper {
   margin-top: auto;
-  /* 核心: 將此區塊推至 flex 容器底部 */
   padding-top: 20px;
   border-top: 1px solid rgba(var(--gold-rgb), 0.2);
   margin: 20px 10% 0 10%;
@@ -982,12 +867,10 @@ section {
   transition: transform 0.3s ease-in-out;
 }
 
-/* 當展開時，箭頭旋轉 */
 .remarks-toggle.active .chevron {
   transform: rotate(180deg);
 }
 
-/* 摺疊內容的容器 */
 .remarks-content.collapsible {
   overflow: hidden;
   max-height: 0;
@@ -996,18 +879,14 @@ section {
 
 .remarks-content.collapsible ul {
   margin-top: 15px;
-  /* 與標題間距 */
   margin-left: 0;
   margin-right: 0;
 }
 
-/* 展開時的狀態 */
 .remarks-content.collapsible.active {
   max-height: 500px;
-  /* 設定一個足夠大的高度讓內容完全顯示 */
 }
 
-/* 讓備註區塊的非摺疊內容靠上對齊 */
 .step-notes-section .reward-tier,
 .step-notes-section .solo-note,
 .step-notes-section .product-list,
@@ -1017,7 +896,6 @@ section {
   flex-shrink: 0;
 }
 
-/* --- 區塊4: 登錄好禮 --- */
 .bonus-section-row {
   margin-bottom: 80px;
   text-align: center;
@@ -1032,12 +910,11 @@ section {
 .bonus-description {
   max-width: 800px;
   margin: 0 auto 30px auto;
-  color: #ddd; /* 降低純白色刺眼感，改為柔和的淺灰色 */
-  line-height: 1.8; /* 稍微增加行高 */
-  font-weight: 500; /* 降低字重，避免粗體不易閱讀 */
-  font-size: 1.1rem; /* 放大字體 */
+  color: #ddd;
+  line-height: 1.8;
+  font-weight: 500;
+  font-size: 1.1rem;
 }
-
 
 .pba-grid {
   display: grid;
@@ -1088,9 +965,9 @@ section {
 .series-list {
   list-style: none;
   padding: 0;
-  margin: 25px auto 0; /* 增加上間距並水平置中 */
-  max-width: 400px; /* 限制最大寬度，使其可以被置中 */
-  width: 100%; /* 在最大寬度內保持響應式 */
+  margin: 25px auto 0;
+  max-width: 400px;
+  width: 100%;
 }
 
 .series-list li {
@@ -1121,7 +998,6 @@ section {
   color: #ccc;
 }
 
-/* ★更新: 單品登錄區塊 Accordion 摺疊列表樣式 --- */
 .product-accordion-container {
   max-width: 900px;
   margin: 0 auto;
@@ -1202,19 +1078,16 @@ section {
   line-height: 1.6;
 }
 
-/* --- ★更新: 區塊5: 產品優惠列表樣式 --- */
 .product-list-wrapper {
   max-width: 900px;
   margin: 0 auto;
   border: 1px solid rgba(var(--gold-rgb), 0.2);
   border-radius: 12px;
   overflow: hidden;
-  /* 套用指定漸層背景 */
   background-image: linear-gradient(to top, rgba(38, 33, 27, 0.709) 0%, transparent 60%);
   backdrop-filter: blur(5px);
 }
 
-/* 標頭樣式 */
 .product-list-header {
   display: grid;
   grid-template-columns: 3fr 1fr;
@@ -1234,7 +1107,6 @@ section {
   text-align: right;
 }
 
-/* 更新: ul 本身不再需要背景和邊框 */
 .product-list-table {
   list-style: none;
   padding: 0;
@@ -1263,12 +1135,10 @@ section {
 .product-list-table .product-price {
   text-align: right;
   white-space: nowrap;
-  /* 讓內部元素可以對齊 */
   display: flex;
   justify-content: flex-end;
   align-items: baseline;
   flex-wrap: wrap;
-  /* 允許換行以防備註過長 */
 }
 
 .product-list-table .promo-price {
@@ -1285,16 +1155,12 @@ section {
   margin-right: 10px;
 }
 
-/* 行內備註樣式 */
 .product-notes-inline {
   font-size: 0.85rem;
   color: #bbb;
   font-style: italic;
 }
 
-
-
-/* --- Modal 彈出視窗 --- */
 .modal-container {
   display: none;
   position: fixed;
@@ -1400,7 +1266,6 @@ section {
   line-height: 1.7;
 }
 
-/* --- Modal 複製與分享 --- */
 .code-display-container {
   margin-top: 15px;
 }
@@ -1483,9 +1348,7 @@ section {
   transform: translateX(-50%) translateY(0);
 }
 
-/* --- RWD: 響應式設計 --- */
 @media (max-width: 992px) {
-  /* 簡化: 直接隱藏桌機版導覽 */
   .main-nav {
       display: none;
   }
@@ -1496,25 +1359,21 @@ section {
       font-size: 2.2rem;
   }
 
-  /* ★優化: 揪團步驟在小螢幕改為單欄 */
   .steps-grid-new {
       grid-template-columns: 1fr;
       gap: 80px;
   }
 
-  /* ★優化: 贈品區在小螢幕改為單欄 */
   .pba-grid {
       grid-template-columns: 1fr;
   }
 
-  /* RWD: 在小螢幕上，讓獎品卡片的疊圖置中並稍微放大，以利閱讀 */
   .prize-overlay-image {
       width: 90%;
   }
 }
 
 @media (max-width: 600px) {
-  /* ++ 更新: 小螢幕時隱藏標頭，簡化排版 ++ */
   .product-list-header {
       display: none;
   }
@@ -1528,7 +1387,6 @@ section {
   .product-list-table .product-price {
       text-align: left;
       justify-content: flex-start;
-      /* 價格靠左對齊 */
   }
 }
 
@@ -1544,9 +1402,8 @@ section {
   }
 }
 
-/* ++ 新增: 美化內文中的超連結樣式 ++ */
 main a:not(.cta-button):not(.step1-background-link):not(.step2-background-link) {
-  color: var(--gold); /* 將預設顏色改為金色，更醒目 */
+  color: var(--gold);
   text-decoration: none;
   border-bottom: 1px dotted var(--gold);
   transition: all 0.3s ease;
@@ -1559,46 +1416,40 @@ main a:not(.cta-button):not(.step1-background-link):not(.step2-background-link):
   border-bottom-style: solid;
 }
 
-/* ++ 新增: 組合戰備區靜態卡片樣式 ++ */
 .static-product-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 創建三欄式網格 */
-  gap: 30px; /* 卡片間距 */
-  align-items: center; /* 垂直置中 */
-  padding: 50px 0; /* 增加上下間距，與輪播區塊視覺一致 */
-  max-width: 1300px; /* 限制最大寬度 */
-  margin: 0 auto; /* 水平置中 */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  align-items: center;
+  padding: 50px 0;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
 .static-product-grid .product-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 加入平滑過渡效果 */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* 預設讓中間的卡片放大並加上陰影 */
 .static-product-grid .product-card.active {
   transform: scale(1.1);
   box-shadow: 0 10px 40px rgba(var(--gold-rgb), 0.3);
 }
 
-/* 當滑鼠移到任何卡片上時的效果 */
 .static-product-grid .product-card:hover {
   transform: scale(1.1);
   box-shadow: 0 10px 40px rgba(var(--gold-rgb), 0.3);
 }
 
-/* 當滑鼠移到其他卡片時，重設所有卡片狀態 */
 .static-product-grid:hover .product-card {
   transform: scale(1);
   box-shadow: none;
 }
 
-/* 滑鼠在容器內時，只放大 hover 的那張 */
 .static-product-grid:hover .product-card:hover {
   transform: scale(1.1);
   box-shadow: 0 10px 40px rgba(var(--gold-rgb), 0.3);
 }
 
-/* RWD: 在小螢幕上變為單欄 */
 @media (max-width: 992px) {
   .static-product-grid {
     grid-template-columns: 1fr;
@@ -1609,25 +1460,23 @@ main a:not(.cta-button):not(.step1-background-link):not(.step2-background-link):
   .static-product-grid .product-card:hover,
   .static-product-grid:hover .product-card,
   .static-product-grid:hover .product-card:hover {
-    transform: none; /* 在手機上移除放大效果 */
+    transform: none;
     box-shadow: none;
   }
 }
 
 .bonus-description strong {
   font-size:1.4em;
-  font-weight: 700; /* 確保是粗體 */
-  /* 使用自定義的鮮黃色作為螢光筆底線 */
+  font-weight: 700;
   background-image: linear-gradient(rgba(128, 88, 47, 0.6), rgba(135, 89, 45, 0.6));
   background-repeat: no-repeat;
-  background-size: 100% 40%; /* 底線高度佔文字的 40% */
-  background-position: 0 90%; /* 微調底線位置，讓它更貼近文字底部 */
+  background-size: 100% 40%;
+  background-position: 0 90%;
   padding: 0 4px;
 }
 
-/* ++ [新增] 活動條款區塊樣式 ++ */
 .terms-section {
-  background-color: #040404; /* 淺灰色背景，參考新專案 */
+  background-color: #040404;
   padding: 60px 0;
 }
 .terms-accordion-trigger {
@@ -1642,12 +1491,12 @@ main a:not(.cta-button):not(.step1-background-link):not(.step2-background-link):
   transition: background-color 0.3s ease;
 }
 .terms-accordion-trigger:hover {
-  background-color: #685f52; /* 滑鼠懸停顏色 */
+  background-color: #685f52;
 }
 .terms-accordion-trigger h2 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #ffffff; /* 深灰色文字 */
+  color: #ffffff;
   margin: 0;
 }
 .terms-accordion-icon {
@@ -1664,7 +1513,7 @@ main a:not(.cta-button):not(.step1-background-link):not(.step2-background-link):
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease-in-out;
-  background-color: #ffffff; /* 展開內容為白色背景 */
+  background-color: #ffffff;
 }
 .terms-content-inner {
   padding: 40px;
@@ -1688,10 +1537,9 @@ main a:not(.cta-button):not(.step1-background-link):not(.step2-background-link):
   padding-left: 20px;
 }
 
-/* ++ [新增] 頁尾 Footer 樣式 ++ */
 .site-footer {
-  background-color: #040404; /* 深黑色背景 */
-  color: #9ca3af; /* 灰色文字 */
+  background-color: #040404;
+  color: #9ca3af;
   padding: 50px 0;
 }
 .footer-top {
@@ -1775,9 +1623,8 @@ main a:not(.cta-button):not(.step1-background-link):not(.step2-background-link):
   color: #ffffff;
 }
 
-/* ++ [新增] 漢堡選單 與 手機版導覽列樣式 ++ */
 .mobile-nav-toggle {
-  display: none; /* 桌機預設隱藏 */
+  display: none;
   background: none;
   border: none;
   cursor: pointer;
@@ -1811,7 +1658,7 @@ main a:not(.cta-button):not(.step1-background-link):not(.step2-background-link):
   visibility: visible;
 }
 .mobile-nav {
-  background-color: rgba(193, 122, 80, 0.6);
+  background-color: rgba(105, 105, 105, 0.6);
   width: 80%;
   max-width: 300px;
   transform: translateX(-100%);
@@ -1855,18 +1702,15 @@ main a:not(.cta-button):not(.step1-background-link):not(.step2-background-link):
   background-color: rgba(var(--gold-rgb), 0.1);
 }
 
-/* --- ★★★ RWD 優化區塊 ★★★ --- */
-
-/* 平板尺寸 (992px 以下) */
 @media (max-width: 992px) {
   .main-nav {
-      display: none; /* 隱藏桌機版導覽 */
+      display: none;
   }
   .mobile-nav-toggle {
-      display: block; /* 顯示漢堡選單按鈕 */
+      display: block;
   }
   .sticky-nav .container {
-      justify-content: flex-end; /* 將按鈕靠右 */
+      justify-content: flex-end;
   }
   .static-product-grid {
       grid-template-columns: 1fr;
@@ -1874,12 +1718,11 @@ main a:not(.cta-button):not(.step1-background-link):not(.step2-background-link):
   }
   .static-product-grid .product-card.active,
   .static-product-grid .product-card:hover {
-      transform: none; /* 在觸控裝置上移除 hover 放大效果 */
+      transform: none;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
   }
 }
 
-/* 大型手機 & 小型平板 (768px 以下) */
 @media (max-width: 768px) {
   section {
       padding: 80px 0;
@@ -1903,32 +1746,31 @@ main a:not(.cta-button):not(.step1-background-link):not(.step2-background-link):
       grid-template-columns: 1fr;
   }
   .prize-overlay-image {
-      width: 90%; /* 讓獎品文字在手機上更清晰 */
+      width: 90%;
   }
 }
 
-/* 標準手機尺寸 (600px 以下) */
 @media (max-width: 600px) {
   .product-list-header {
-      display: none; /* 隱藏優惠列表標頭 */
+      display: none;
   }
   .product-list-table li {
-      grid-template-columns: 1fr; /* 改為單欄 */
+      grid-template-columns: 1fr; 
       gap: 8px;
       padding: 15px;
-      text-align: left; /* 文字靠左 */
+      text-align: left;
   }
   .product-list-table .product-price {
-      justify-content: flex-start; /* 價格也靠左 */
+      justify-content: flex-start; 
       text-align: left;
   }
   .product-list-header .header-title:last-child,
   .product-list-table .product-price {
-      text-align: left; /* 價格靠左 */
+      text-align: left;
   }
 }
 
-/* 小型手機尺寸 (480px 以下) */
+
 @media (max-width: 480px) {
   section {
       padding: 60px 0;
@@ -1946,7 +1788,7 @@ main a:not(.cta-button):not(.step1-background-link):not(.step2-background-link):
       justify-content: center;
   }
   .product-swiper .swiper-slide {
-      width: 300px; /* 稍微縮小輪播卡片寬度 */
+      width: 300px; 
   }
   .bonus-description {
       font-size: 1rem;
@@ -1956,55 +1798,55 @@ main a:not(.cta-button):not(.step1-background-link):not(.step2-background-link):
   }
 }
 
-/* --- ++ [新增] 修正手機版頁籤/篩選器換行問題 ++ --- */
+
 @media (max-width: 768px) {
   .tab-buttons,
   .category-filters {
-      flex-wrap: wrap; /* 核心：允許多行換行 */
-      border-radius: 12px; /* 調整為較方形的圓角以適應多行 */
+      flex-wrap: wrap;
+      border-radius: 12px; 
       padding: 10px;
-      justify-content: center; /* 讓按鈕在容器內置中 */
+      justify-content: center; 
   }
 
-  /* 移除無法適應換行的滑塊特效 */
+
   .tab-buttons::before,
   .category-filters::before {
       display: none; 
   }
 
-  /* 為換行後的按鈕增加間距 */
+
   .tab-button,
   .filter-button {
       margin: 5px;
   }
 
-  /* 當滑塊移除後，直接為 active 的按鈕加上背景，以突顯選中狀態 */
+
   .tab-button.active,
   .filter-button.active {
       background-color: var(--gold);
       color: var(--text-dark);
-      border-radius: 50px; /* 讓 active 的按鈕保持膠囊形狀 */
+      border-radius: 50px; 
   }
 }
 
-/* --- ++ [新增] 隱藏手機版漢堡選單，並恢復顯示桌機版導覽列 ++ --- */
+
 @media (max-width: 992px) {
-  /* 1. 強制隱藏漢堡選單按鈕 */
+
   .mobile-nav-toggle {
       display: none !important;
   }
 
-  /* 2. 讓原本被隱藏的桌機版導覽列重新顯示 */
+
   .main-nav {
       display: block !important;
   }
   
-  /* 3. (可選) 讓導覽列在容器內置中，排版更好看 */
+
   .sticky-nav .container {
       justify-content: center;
   }
 
-  /* 4. (可選) 允許導覽連結換行，避免在小螢幕上溢出 */
+
   .main-nav ul {
      flex-wrap: wrap;
      justify-content: center;
