@@ -1,0 +1,1774 @@
+/* File: style.css */
+
+/* --- 全域設定與變數 --- */
+:root {
+  --gold: #b9a67a;
+  --gold-rgb: 221, 187, 85;
+  --gold-bright: #F5E4A2;
+  /* 用於高對比度標題 */
+  --dark-bg: #000000;
+  --card-bg: rgba(28, 24, 40, 0.85);
+  --card-bg-solid: #1C1828;
+  --text-light: #f0e8d9;
+  --text-dark: #120f1a;
+}
+
+/* --- 基本樣式重設 --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--text-light);
+  overflow-x: hidden;
+  /* 防止水平滾動條出現 */
+}
+
+/* ★新增: 通用 visually-hidden class ★ */
+/* 讓內容在視覺上消失，但對 SEO 和螢幕閱讀器保持可見 */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- 滾動視差背景樣式 --- */
+#parallax-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  /* 確保背景在最底層 */
+  background-image:
+      radial-gradient(circle at center, rgba(173, 173, 173, 0.45) 0%, var(--dark-bg) 99%),
+      url('./img/BG.jpg');
+  background-size: cover;
+  background-position: center;
+  transform: scale(1);
+  transition: transform 0.2s ease-out;
+}
+
+/* --- 主要內容容器 --- */
+main {
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.container-wide {
+  max-width: 100%;
+  /* Hero banner 可以滿版 */
+  padding: 0 20px;
+}
+
+section {
+  padding: 100px 0;
+  position: relative;
+}
+
+/* --- 按鈕樣式 --- */
+.cta-button {
+  display: inline-block;
+  padding: 12px 30px;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 1px solid var(--gold);
+  cursor: pointer;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button.primary {
+  background: var(--gold);
+  color: var(--text-dark);
+}
+
+.cta-button.primary:hover {
+  box-shadow: 0 0 20px rgba(var(--gold-rgb), 0.8);
+  transform: translateY(-3px);
+}
+
+.cta-button.secondary {
+  background: transparent;
+  color: var(--gold);
+}
+
+.cta-button.secondary:hover {
+  background: var(--gold);
+  color: var(--text-dark);
+}
+
+/* --- 標題樣式 --- */
+.section-title {
+  text-align: center;
+  font-size: 2.8rem;
+  font-weight: 900;
+  margin-bottom: 80px;
+  color: rgb(0, 0, 0);
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.section-title span {
+  background: none;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  height: 4px;
+  width: 80px;
+  background: var(--gold);
+  border-radius: 2px;
+  box-shadow: 0 0 15px rgba(var(--gold-rgb), 0.7);
+}
+
+/* --- 當標題容器內是圖片時的樣式調整 --- */
+.section-title.image-title {
+  padding-bottom: 0;
+  /* 移除為文字設計的底部留白 */
+}
+
+.section-title.image-title::after {
+  display: none;
+  /* 隱藏為文字設計的金色底線 */
+}
+
+/* 標題圖片本身的樣式 */
+.section-title-image {
+  display: block;
+  /* 讓圖片變成區塊元素，才能使用 margin auto 置中 */
+  max-width: 1000px;
+  /* 設定圖片最大寬度，避免在電腦大螢幕上過大 */
+  width: 100%;
+  /* 讓圖片在小螢幕上可以縮放 */
+  height: auto;
+  /* 保持圖片的原始長寬比 */
+  margin: 0 auto;
+  /* 讓圖片水平置中 */
+}
+
+
+/* --- 通用卡片樣式 --- */
+.event-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(var(--gold-rgb), 0.3);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.event-card:hover {
+  border-color: rgba(var(--gold-rgb), 0.7);
+}
+
+/* --- 導覽列樣式 --- */
+.sticky-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 15px 0;
+  background-color: rgba(255, 255, 255, 0);
+  /* 保留深色底 */
+  background-image: linear-gradient(180deg, rgb(114, 101, 83), rgb(98, 89, 78), rgb(82, 72, 59), rgba(35, 35, 35, 0.836));
+  border-bottom: 1px solid rgba(var(--gold-rgb), 0.2);
+}
+
+.sticky-nav .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-logo {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--text-light);
+  text-decoration: none;
+}
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+}
+
+.main-nav a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.main-nav a:hover {
+  background-color: #b3926e; /* 改為與隊長徽章相同的顏色 */
+  color: var(--text-dark);
+  box-shadow: none; /* 移除陰影讓風格更統一 */
+}
+
+/* --- 區塊1: Hero Banner --- */
+#hero {
+  padding-top: 120px;
+  /* 增加空間以避免被導覽列擋住 */
+  padding-bottom: 60px;
+  text-align: center;
+}
+
+.hero-main-visual {
+  width: 100%;
+  max-width: 1500px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+  border: 2px solid rgba(var(--gold-rgb), 0.2);
+}
+
+/* --- 區塊2 & 5: 頁籤 (Tabs) 通用樣式 --- */
+.tabs-container,
+#product-deals .container {
+  text-align: center;
+}
+
+.tab-buttons,
+.category-filters {
+  position: relative;
+  display: inline-flex;
+  margin: 0 auto 50px auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(var(--gold-rgb), 0.3);
+  border-radius: 50px;
+  padding: 5px;
+}
+
+.tab-button,
+.filter-button {
+  background: transparent;
+  border: none;
+  color: var(--gold);
+  padding: 10px 30px;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: color 0.4s ease;
+  z-index: 2;
+  white-space: nowrap;
+  flex: 1 1 0; /* 讓按鈕平均分配容器寬度 */
+}
+
+.tab-button:hover,
+.filter-button:hover {
+  color: var(--gold-bright);
+}
+
+.tab-button.active,
+.filter-button.active {
+  color: var(--text-dark);
+}
+
+.tab-button.active:hover,
+.filter-button.active:hover {
+  color: var(--text-dark);
+}
+
+/* ★優化: 通用化頁籤滑塊樣式 */
+.tab-buttons::before,
+.category-filters::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: calc(100% - 10px);
+  width: calc(var(--deals-slider-width) - 2px);
+  /* JS 會設定這個值 */
+  background: linear-gradient(160deg, #F9E08A, #A57C2A);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5), inset 0 1px 1px #F9E08A;
+  border-radius: 50px;
+  transform: var(--deals-slider-transform, translateX(0%));
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: 1;
+}
+
+/* 新增：專門為雙按鈕頁籤設計的規則 */
+.tab-buttons::before {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: calc(100% - 10px);
+  width: calc(var(--deals-slider-width) - 5px); /* 在這裡使用特殊修正 */
+  background: linear-gradient(160deg, #F9E08A, #A57C2A);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5), inset 0 1px 1px #F9E08A;
+  border-radius: 50px;
+  transform: var(--deals-slider-transform, translateX(0%));
+  transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+  z-index: 1;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* --- Swiper 輪播樣式 (通用) --- */
+.product-swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  overflow: visible;
+  /* 讓卡片陰影能完整顯示 */
+  transform: translateZ(0);
+  /* 硬體加速 */
+}
+
+.product-swiper .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 400px;
+}
+
+/* ★優化: 統一所有 Swiper 箭頭樣式 */
+.product-swiper .swiper-button-next,
+.product-swiper .swiper-button-prev {
+  position: absolute;
+  top: 50%;
+  width: 44px;
+  height: 44px;
+  margin-top: -22px;
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  color: var(--gold);
+  /* 設定父容器顏色 */
+}
+
+.product-swiper .swiper-button-next:hover,
+.product-swiper .swiper-button-prev:hover {
+  transform: scale(1.2);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-family: swiper-icons;
+  font-size: 28px !important;
+  /* ★確保大小正確 */
+  font-weight: bold;
+  color: var(--gold) !important;
+  /* ★ 強制箭頭圖標為金色 */
+  text-transform: none !important;
+  letter-spacing: 0;
+  font-variant: initial;
+  line-height: 1;
+}
+
+
+/* --- 萬元精選區塊產品卡片 --- */
+.product-card {
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  text-align: left;
+  display: flex;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+}
+
+.product-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 漸層遮罩 */
+.product-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 45%;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.product-card .product-card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 20px 15px;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.product-card .product-card-info h4 {
+  font-size: 1.2rem;
+  padding: 0;
+  margin: 0 0 5px 0;
+  color: var(--text-light);
+}
+
+.product-card .product-card-info .price {
+  font-size: 1.6rem;
+  color: var(--gold);
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+}
+
+.card-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--gold);
+  color: var(--text-dark);
+  padding: 3px 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 5px;
+  z-index: 3;
+}
+
+/* --- 區塊3: 揪團攻略區 (全新排版) --- */
+.prize-info-card.image-fill {
+  border: 1px solid rgba(var(--gold-rgb), 0.3);
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+  aspect-ratio: 1200 / 270;
+  width: 100%;
+  max-width: 1400px;
+  margin: 40px auto;
+  transition: all 0.3s ease;
+  background-color: transparent;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.prize-info-card.image-fill:hover {
+  border-color: rgba(var(--gold-rgb), 0.8);
+  box-shadow: 0 10px 30px rgba(var(--gold-rgb), 0.3);
+}
+
+.prize-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* 獎品資訊卡上的文字疊圖樣式 (放大並增加遮罩) */
+/* 1. 為影片容器加上模糊(毛玻璃)效果 */
+.prize-info-card.image-fill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backdrop-filter: blur(4px);
+  /* 針對 Safari 的相容性寫法 */
+  backdrop-filter: blur(4px);
+  /* 主要的模糊效果 */
+  z-index: 1;
+  /* 確保遮罩在影片之上，但在文字之下 */
+}
+
+/* 2. 放大文字疊圖 */
+.prize-overlay-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.steps-grid-new {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  /* 等高 */
+  gap: 80px 40px;
+  /* 增加垂直間距 */
+  position: relative;
+  margin-top: 80px;
+}
+
+.step-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-card {
+  position: relative;
+  padding: 30px;
+  /* 增加內距，讓 header 有空間 */
+  display: block;
+  background: none;
+  /* 移除背景，由 content 負責 */
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.step-header {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  background: rgba(55, 55, 55, 0.233) 0%;
+  padding: 5px 25px;
+  border-radius: 50px;
+  white-space: nowrap;
+  border: 1px solid rgba(var(--gold-rgb), 0.3);
+  transition: all 0.3s ease;
+}
+
+.step-number {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  color: var(--gold-bright);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.step-number::after {
+  content: '//';
+  margin: 0 12px;
+  opacity: 0.6;
+  font-weight: 400;
+}
+
+.step-title {
+  font-size: 1.6rem;
+  color: var(--gold-bright);
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+}
+
+.step-content {
+  border: 1px solid rgba(var(--gold-rgb), 0.3);
+  background: var(--card-bg);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 60px 30px 30px;
+  /* 增加頂部 padding */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+}
+
+/* 統一漸層背景 */
+.step-content,
+.pba-column.event-card {
+  /* 1. 設定深色基底，這將是漸層頂部的顏色 */
+  background-color: #00000058;
+  /* 深炭灰色 */
+  /* 2. 疊加從底部金色到中部透明的線性漸層 */
+  background-image: linear-gradient(to top,
+          /* 方向:由下至上 */
+          rgba(38, 33, 27, 0.709) 0%,
+          /* 底部的金色光暈 */
+          transparent 60%
+          /* 漸層結束的位置 */
+      );
+}
+
+.step-card:hover .step-content {
+  border-color: rgba(var(--gold-rgb), 0.8);
+  box-shadow: 0 0 25px rgba(var(--gold-rgb), 0.3);
+}
+
+.step-card:hover .step-header {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+/* --- 揪團步驟區 (Step 1 & 2) 全新統一排版 --- */
+/* 1. 設定 step-content 的 padding為0，讓背景圖能填滿 */
+.steps-grid-new .step-card .step-content {
+  padding: 0;
+  justify-content: initial;
+}
+
+/* 2. 為兩個步驟的背景連結 <a> 標籤設定通用樣式 */
+.step1-background-link,
+.step2-background-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 2.5 / 1;
+  /* 設定長寬比，避免高度塌陷 */
+  position: relative;
+  /* 作為內部 img 的定位基準點 */
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  border-radius: 12px;
+}
+
+/* 3. 分別設定兩個步驟的背景圖 */
+.step1-background-link {
+  background-image: url('./img/step1bg.png');
+}
+
+.step2-background-link {
+  background-image: url('./img/step2bg.png');
+}
+
+/* 4. 為所有疊加的按鈕圖片 <img> 設定通用樣式 */
+.step1-background-link img,
+.step2-background-link img {
+  position: absolute;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  pointer-events: none;
+  /* 讓滑鼠事件穿透圖片 */
+  user-select: none;
+  /* 禁止選取圖片 */
+}
+
+/* 5.【專門為 Step 1 的按鈕設定位置】*/
+.step1-background-link .overlay-normal,
+.step1-background-link .overlay-hover {
+  top: 22%;
+  left: 22%;
+  width: 45%;
+  transform: translate(0, 0);
+  /* Step 1不需置中校正 */
+}
+
+/* 6.【專門為 Step 2 的按鈕設定位置】*/
+.step2-background-link .overlay-normal,
+.step2-background-link .overlay-hover {
+  top: 55%;
+  left: 50%;
+  width: 45%;
+  transform: translate(-50%, -50%);
+  /* Step 2 使用置中校正 */
+}
+
+/* 7. 為兩個步驟設定統一的 Hover 效果 */
+.step1-background-link .overlay-hover,
+.step2-background-link .overlay-hover {
+  opacity: 0;
+  /* 預設隱藏 hover 圖 */
+}
+
+.step1-background-link:hover .overlay-normal,
+.step2-background-link:hover .overlay-normal {
+  opacity: 0;
+  /* hover 時隱藏正常圖 */
+}
+
+.step1-background-link:hover .overlay-hover,
+.step2-background-link:hover .overlay-hover {
+  opacity: 1;
+  /* hover 時顯示 hover 圖 */
+}
+
+/* 8. 統一的 Hover 放大效果 */
+.step1-background-link:hover img,
+.step2-background-link:hover img {
+  transform: scale(1.08);
+  /* 放大效果應用於圖片本身 */
+}
+
+/* 9. 修正 Step 2因置中校正導致的放大偏移 */
+.step2-background-link:hover img {
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+
+/* --- 按鈕上下浮動動畫 --- */
+/* A. 定義動畫關鍵影格 */
+@keyframes floatAnimation {
+  0% {
+      transform: translateY(0);
+  }
+
+  50% {
+      transform: translateY(-6px);
+  }
+
+  /* 向上浮動 6px */
+  100% {
+      transform: translateY(0);
+  }
+}
+
+/* B. 將動畫應用於兩個步驟的正常狀態按鈕 */
+.step1-background-link .overlay-normal,
+.step2-background-link .overlay-normal {
+  animation: floatAnimation 1.5s ease-in-out infinite;
+}
+
+/* C. 修正 Step 2因置中校正導致的動畫偏移 */
+@keyframes floatAnimationStep2 {
+  0% {
+      transform: translate(-50%, -50%) translateY(0);
+  }
+
+  50% {
+      transform: translate(-50%, -50%) translateY(-6px);
+  }
+
+  /* 向上浮動 6px */
+  100% {
+      transform: translate(-50%, -50%) translateY(0);
+  }
+}
+
+.step2-background-link .overlay-normal {
+  animation-name: floatAnimationStep2;
+  /* 使用專為 Step 2 設計的動畫 */
+}
+
+/* --- 步驟下方專屬說明欄位樣式 --- */
+.step-notes-section {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 25px;
+  border: 1px solid rgba(var(--gold-rgb), 0.2);
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.2);
+  /* 保留基底色 */
+  text-align: center;
+  background-image: linear-gradient(to top, rgba(38, 33, 27, 0.709) 0%, transparent 60%);
+  display: flex;
+  flex-direction: column;
+}
+
+/* 主標題 h5 */
+.step-notes-section h5 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: rgb(204, 190, 169);
+  margin-bottom: 20px;
+  /* 增加與下方內容的間距 */
+  text-align: center;
+  /* 讓標題置中 */
+}
+
+/* 副標題 h6 */
+.step-notes-section h6 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgb(204, 190, 169);
+  /* 沿用 h5 顏色 */
+  margin: 30px 10% 15px 10%;
+  border-bottom: 1px solid rgba(var(--gold-rgb), 0.2);
+  padding-bottom: 10px;
+}
+
+/* 一般段落 p */
+.step-notes-section p {
+  font-size: 0.9rem;
+  color: rgb(177, 177, 177);
+  line-height: 1.8;
+}
+
+/* 列表 ul */
+.step-notes-section ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 10% 15px 10%;
+}
+
+/* 列表項目 li */
+.step-notes-section li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+  color: rgb(177, 177, 177);
+}
+
+.step-notes-section li:last-child {
+  margin-bottom: 0;
+}
+
+.step-notes-section li::before {
+  content: '●';
+  color: rgb(146, 146, 146);
+  font-size: 0.6rem;
+  margin-right: 12px;
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+
+/* 表格樣式 */
+.step-notes-section table {
+  width: 80%;
+  margin: 15px auto;
+  /* 讓表格本身置中 */
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.step-notes-section th,
+.step-notes-section td {
+  border: 1px solid rgba(var(--gold-rgb), 0.2);
+  padding: 10px;
+  text-align: center;
+}
+
+.step-notes-section th {
+  background-color: rgba(38, 33, 27, 0.5);
+  /* 使用漸層的深色部分 */
+  color: rgb(204, 190, 169);
+  font-weight: 700;
+}
+
+.step-notes-section td {
+  color: rgb(177, 177, 177);
+}
+
+/* ++ 新增: 讓揪團辦法的表格置中 ++ */
+ .step-notes-section table {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px; /* 增加與上方標題的間距 */
+}
+
+/* --- 邀請碼說明區塊強調樣式 --- */
+/* 福利層級容器 */
+.step-notes-section .reward-tier {
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(var(--gold-rgb), 0.1);
+  border-radius: 8px;
+  margin-left: 10%;
+  /* 維持縮排風格 */
+  margin-right: 10%;
+}
+
+.step-notes-section .reward-tier p {
+  margin: 0;
+  /* 移除段落的預設邊距 */
+  font-size: 1rem;
+  /* 稍微放大字體 */
+  color: #ddd;
+}
+
+/* 身份徽章 */
+.step-notes-section .tier-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+/* 隊員徽章樣式 */
+.step-notes-section .tier-badge.player {
+  background-color: #b3926e;
+  color: var(--text-dark);
+}
+
+/* 隊長徽章樣式 */
+.step-notes-section .tier-badge.leader {
+  background-color: #b3926e;
+  color: var(--text-dark);
+}
+
+/* 補充說明樣式 */
+.step-notes-section .solo-note {
+  font-size: 0.85rem;
+  color: #999;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+/* 強調文字樣式*/
+.step-notes-section .highlight {
+  color: #fff; /* 維持文字高亮白色 */
+  font-size: 1.2em;
+  font-weight: 900;
+  background-image: linear-gradient(rgba(128, 88, 47, 0.6), rgba(135, 89, 45, 0.6));
+  background-repeat: no-repeat;
+  background-size: 100% 35%; /* 底線寬度100%，高度佔文字的35% */
+  background-position: 0 100%; /* 從底部開始定位 */
+  padding: 0 2px; /* 微調左右邊距，讓底線比文字稍寬一點 */
+}
+
+/* --- 揪團攻略區備註摺疊與等高樣式 --- */
+.remarks-wrapper {
+  margin-top: auto;
+  /* 核心: 將此區塊推至 flex 容器底部 */
+  padding-top: 20px;
+  border-top: 1px solid rgba(var(--gold-rgb), 0.2);
+  margin: 20px 10% 0 10%;
+}
+
+.remarks-toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: rgb(204, 190, 169);
+  font-weight: 500;
+}
+
+.remarks-toggle .chevron {
+  fill: rgb(204, 190, 169);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* 當展開時，箭頭旋轉 */
+.remarks-toggle.active .chevron {
+  transform: rotate(180deg);
+}
+
+/* 摺疊內容的容器 */
+.remarks-content.collapsible {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s cubic-bezier(0.25, 0.8, 0.5, 1);
+}
+
+.remarks-content.collapsible ul {
+  margin-top: 15px;
+  /* 與標題間距 */
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* 展開時的狀態 */
+.remarks-content.collapsible.active {
+  max-height: 500px;
+  /* 設定一個足夠大的高度讓內容完全顯示 */
+}
+
+/* 讓備註區塊的非摺疊內容靠上對齊 */
+.step-notes-section .reward-tier,
+.step-notes-section .solo-note,
+.step-notes-section .product-list,
+.step-notes-section h5,
+.step-notes-section h6,
+.step-notes-section table {
+  flex-shrink: 0;
+}
+
+/* --- 區塊4: 登錄好禮 --- */
+.bonus-section-row {
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.bonus-section-row h3 {
+  font-size: 2.2rem;
+  color: var(--gold-bright);
+  margin-bottom: 15px;
+}
+
+.bonus-description {
+  max-width: 800px;
+  margin: 0 auto 30px auto;
+  color: #ddd; /* 降低純白色刺眼感，改為柔和的淺灰色 */
+  line-height: 1.8; /* 稍微增加行高 */
+  font-weight: 500; /* 降低字重，避免粗體不易閱讀 */
+  font-size: 1.1rem; /* 放大字體 */
+}
+
+
+.pba-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 30px;
+  text-align: left;
+}
+
+.pba-column {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.pba-column img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.pba-content {
+  position: relative;
+}
+
+.pba-title-wrapper,
+.pba-title-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 15px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgba(var(--gold-rgb), 0.3);
+  padding-bottom: 20px;
+}
+
+.pba-title-content {
+  text-align: center;
+}
+
+.gift-prefix {
+  font-size: 1.4rem;
+  color: #bfbfbf;
+  margin: 0 0 8px 0;
+  font-weight: 500;
+}
+
+.series-list {
+  list-style: none;
+  padding: 0;
+  margin: 25px auto 0; /* 增加上間距並水平置中 */
+  max-width: 400px; /* 限制最大寬度，使其可以被置中 */
+  width: 100%; /* 在最大寬度內保持響應式 */
+}
+
+.series-list li {
+  display: grid;
+  grid-template-columns: 85px 1fr;
+  gap: 15px;
+  padding: 12px 0;
+  text-align: left;
+  border-bottom: 1px solid rgba(var(--gold-rgb), 0.15);
+  transition: background-color 0.2s ease;
+}
+
+.series-list li:last-child {
+  border-bottom: none;
+}
+
+.series-list li:hover {
+  background-color: rgba(var(--gold-rgb), 0.05);
+}
+
+.category-label {
+  font-weight: 700;
+  color: var(--gold);
+  text-align: right;
+}
+
+.series-list li>span:last-child {
+  color: #ccc;
+}
+
+/* ★更新: 單品登錄區塊 Accordion 摺疊列表樣式 --- */
+.product-accordion-container {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.accordion-item {
+  border: 1px solid rgba(var(--gold-rgb), 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  background-image: linear-gradient(to top, rgba(38, 33, 27, 0.709) 0%, transparent 60%);
+  background-color: rgba(73, 72, 70, 0.651);
+  backdrop-filter: blur(5px);
+  transition: background-color 0.3s ease;
+}
+
+.accordion-item.active {
+  background-image: linear-gradient(to top, rgba(38, 33, 27, 0.709) 0%, transparent 60%);
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 20px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--gold-bright);
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.accordion-header .chevron {
+  fill: var(--gold-bright);
+  transition: transform 0.3s ease-in-out;
+}
+
+.accordion-item.active .accordion-header .chevron {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.25, 0.8, 0.5, 1);
+}
+
+.accordion-content .product-list-table {
+  padding: 0 25px 20px;
+}
+
+.accordion-content .product-list-table div {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 15px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(var(--gold-rgb), 0.15);
+  text-align: left;
+}
+
+.accordion-content .product-list-table div:last-child {
+  border-bottom: none;
+}
+
+.accordion-content .product-list-table span:first-child {
+  font-weight: 700;
+  color: var(--gold);
+  text-align: right;
+}
+
+.accordion-content .product-list-table span:last-child {
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* --- ★更新: 區塊5: 產品優惠列表樣式 --- */
+.product-list-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  border: 1px solid rgba(var(--gold-rgb), 0.2);
+  border-radius: 12px;
+  overflow: hidden;
+  /* 套用指定漸層背景 */
+  background-image: linear-gradient(to top, rgba(38, 33, 27, 0.709) 0%, transparent 60%);
+  backdrop-filter: blur(5px);
+}
+
+/* 標頭樣式 */
+.product-list-header {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 10px 20px;
+  padding: 15px 25px;
+  border-bottom: 1px solid rgba(var(--gold-rgb), 0.3);
+  background-color: rgba(38, 33, 27, 0.5);
+}
+
+.product-list-header .header-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgb(204, 190, 169);
+}
+
+.product-list-header .header-title:last-child {
+  text-align: right;
+}
+
+/* 更新: ul 本身不再需要背景和邊框 */
+.product-list-table {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-list-table li {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 10px 20px;
+  padding: 18px 25px;
+  border-bottom: 1px solid rgba(var(--gold-rgb), 0.2);
+  align-items: center;
+}
+
+.product-list-table li:last-child {
+  border-bottom: none;
+}
+
+.product-list-table .product-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+.product-list-table .product-price {
+  text-align: right;
+  white-space: nowrap;
+  /* 讓內部元素可以對齊 */
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  flex-wrap: wrap;
+  /* 允許換行以防備註過長 */
+}
+
+.product-list-table .promo-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-right: 10px;
+}
+
+.product-list-table .original-price {
+  font-size: 0.9rem;
+  color: #888;
+  text-decoration: line-through;
+  margin-right: 10px;
+}
+
+/* 行內備註樣式 */
+.product-notes-inline {
+  font-size: 0.85rem;
+  color: #bbb;
+  font-style: italic;
+}
+
+
+
+/* --- Modal 彈出視窗 --- */
+.modal-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 2000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container.active {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--card-bg-solid);
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(var(--gold-rgb), 0.5);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  text-align: center;
+}
+
+.modal-content .close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-content h3 {
+  font-size: 1.8rem;
+  color: var(--gold-bright);
+  margin-bottom: 15px;
+}
+
+.modal-content .modal-description {
+  color: #ccc;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+#getCodeForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#getCodeForm input[type="email"] {
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid rgba(var(--gold-rgb), 0.4);
+  background: rgba(0, 0, 0, 0.3);
+  color: var(--text-light);
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+#getCodeForm input[type="email"]:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 10px rgba(var(--gold-rgb), 0.5);
+}
+
+#getCodeForm .cta-button {
+  width: 100%;
+}
+
+#email-suggestion {
+  font-size: 0.9rem;
+  color: #ccc;
+  text-align: left;
+  margin-top: -5px;
+  margin-bottom: 10px;
+  min-height: 20px;
+}
+
+#email-suggestion a {
+  color: var(--gold-bright);
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#modal-result {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  min-height: 60px;
+  line-height: 1.7;
+}
+
+/* --- Modal 複製與分享 --- */
+.code-display-container {
+  margin-top: 15px;
+}
+
+.code-display-container p {
+  color: #ccc;
+}
+
+.code-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin: 10px 0;
+}
+
+.team-code {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--gold);
+  letter-spacing: 2px;
+  user-select: all;
+}
+
+.utility-button {
+  background: transparent;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.utility-button:hover {
+  background: var(--gold);
+  color: var(--text-dark);
+}
+
+.utility-button.copied {
+  background: var(--gold);
+  color: var(--text-dark);
+  border-color: var(--gold);
+}
+
+.share-widget-wrapper {
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(var(--gold-rgb), 0.2);
+  position: relative;
+}
+
+#main-share-btn {
+  width: 100%;
+}
+
+#social-share-widget {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: var(--card-bg-solid);
+  border: 1px solid rgba(var(--gold-rgb), 0.3);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  z-index: 10;
+}
+
+#social-share-widget.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* --- RWD: 響應式設計 --- */
+@media (max-width: 992px) {
+  /* 簡化: 直接隱藏桌機版導覽 */
+  .main-nav {
+      display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-title {
+      font-size: 2.2rem;
+  }
+
+  /* ★優化: 揪團步驟在小螢幕改為單欄 */
+  .steps-grid-new {
+      grid-template-columns: 1fr;
+      gap: 80px;
+  }
+
+  /* ★優化: 贈品區在小螢幕改為單欄 */
+  .pba-grid {
+      grid-template-columns: 1fr;
+  }
+
+  /* RWD: 在小螢幕上，讓獎品卡片的疊圖置中並稍微放大，以利閱讀 */
+  .prize-overlay-image {
+      width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  /* ++ 更新: 小螢幕時隱藏標頭，簡化排版 ++ */
+  .product-list-header {
+      display: none;
+  }
+
+  .product-list-table li {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding: 15px;
+  }
+
+  .product-list-table .product-price {
+      text-align: left;
+      justify-content: flex-start;
+      /* 價格靠左對齊 */
+  }
+}
+
+@media (max-width: 480px) {
+  .tab-button,
+  .filter-button {
+      padding: 10px 15px;
+      font-size: 0.9rem;
+  }
+
+  .product-swiper .swiper-slide {
+      width: 300px;
+  }
+}
+
+/* ++ 新增: 美化內文中的超連結樣式 ++ */
+main a:not(.cta-button):not(.step1-background-link):not(.step2-background-link) {
+  color: var(--gold); /* 將預設顏色改為金色，更醒目 */
+  text-decoration: none;
+  border-bottom: 1px dotted var(--gold);
+  transition: all 0.3s ease;
+  padding-bottom: 1px;
+}
+
+main a:not(.cta-button):not(.step1-background-link):not(.step2-background-link):hover {
+  color: var(--gold-bright);
+  border-bottom-color: var(--gold-bright);
+  border-bottom-style: solid;
+}
+
+/* ++ 新增: 組合戰備區靜態卡片樣式 ++ */
+.static-product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 創建三欄式網格 */
+  gap: 30px; /* 卡片間距 */
+  align-items: center; /* 垂直置中 */
+  padding: 50px 0; /* 增加上下間距，與輪播區塊視覺一致 */
+  max-width: 1300px; /* 限制最大寬度 */
+  margin: 0 auto; /* 水平置中 */
+}
+
+.static-product-grid .product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* 加入平滑過渡效果 */
+}
+
+/* 預設讓中間的卡片放大並加上陰影 */
+.static-product-grid .product-card.active {
+  transform: scale(1.1);
+  box-shadow: 0 10px 40px rgba(var(--gold-rgb), 0.3);
+}
+
+/* 當滑鼠移到任何卡片上時的效果 */
+.static-product-grid .product-card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 40px rgba(var(--gold-rgb), 0.3);
+}
+
+/* 當滑鼠移到其他卡片時，重設所有卡片狀態 */
+.static-product-grid:hover .product-card {
+  transform: scale(1);
+  box-shadow: none;
+}
+
+/* 滑鼠在容器內時，只放大 hover 的那張 */
+.static-product-grid:hover .product-card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 40px rgba(var(--gold-rgb), 0.3);
+}
+
+/* RWD: 在小螢幕上變為單欄 */
+@media (max-width: 992px) {
+  .static-product-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+  
+  .static-product-grid .product-card.active,
+  .static-product-grid .product-card:hover,
+  .static-product-grid:hover .product-card,
+  .static-product-grid:hover .product-card:hover {
+    transform: none; /* 在手機上移除放大效果 */
+    box-shadow: none;
+  }
+}
+
+.bonus-description strong {
+  font-size:1.4em;
+  font-weight: 700; /* 確保是粗體 */
+  /* 使用自定義的鮮黃色作為螢光筆底線 */
+  background-image: linear-gradient(rgba(128, 88, 47, 0.6), rgba(135, 89, 45, 0.6));
+  background-repeat: no-repeat;
+  background-size: 100% 40%; /* 底線高度佔文字的 40% */
+  background-position: 0 90%; /* 微調底線位置，讓它更貼近文字底部 */
+  padding: 0 4px;
+}
+
+/* ++ [新增] 活動條款區塊樣式 ++ */
+.terms-section {
+  background-color: #040404; /* 淺灰色背景，參考新專案 */
+  padding: 60px 0;
+}
+.terms-accordion-trigger {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 20px;
+  transition: background-color 0.3s ease;
+}
+.terms-accordion-trigger:hover {
+  background-color: #685f52; /* 滑鼠懸停顏色 */
+}
+.terms-accordion-trigger h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff; /* 深灰色文字 */
+  margin: 0;
+}
+.terms-accordion-icon {
+  width: 24px;
+  height: 24px;
+  color: #4b5563;
+  margin-left: 16px;
+  transition: transform 0.3s ease;
+}
+.terms-accordion-icon.open {
+  transform: rotate(180deg);
+}
+.terms-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease-in-out;
+  background-color: #ffffff; /* 展開內容為白色背景 */
+}
+.terms-content-inner {
+  padding: 40px;
+  color: #4b5563;
+  line-height: 1.7;
+}
+.terms-content-inner h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 5px;
+}
+.terms-content-inner h3:first-child {
+  margin-top: 0;
+}
+.terms-content-inner ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+/* ++ [新增] 頁尾 Footer 樣式 ++ */
+.site-footer {
+  background-color: #040404; /* 深黑色背景 */
+  color: #9ca3af; /* 灰色文字 */
+  padding: 50px 0;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .footer-top {
+    grid-template-columns: repeat(2, 1fr);
+    text-align: left;
+  }
+}
+.footer-section-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #d1d5db;
+  margin-bottom: 1rem;
+}
+.partner-logos {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .partner-logos {
+    justify-content: flex-start;
+  }
+}
+.partner-logos img {
+  max-height: 40px;
+  width: auto;
+  filter: grayscale(100%) brightness(1.5);
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+.partner-logos img:hover {
+  filter: none;
+  opacity: 1;
+}
+.footer-divider {
+  border-top: 1px solid #374151;
+  margin: 30px 0;
+}
+.footer-bottom {
+  text-align: center;
+}
+@media (min-width: 640px) {
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+.copyright-text {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+@media (min-width: 640px) {
+  .social-links {
+    margin-top: 0;
+  }
+}
+.social-links a {
+  font-size: 0.875rem;
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.social-links a:hover {
+  color: #ffffff;
+}
