@@ -1986,3 +1986,27 @@ main a:not(.cta-button):not(.step1-background-link):not(.step2-background-link):
       border-radius: 50px; /* 讓 active 的按鈕保持膠囊形狀 */
   }
 }
+
+/* --- ++ [新增] 隱藏手機版漢堡選單，並恢復顯示桌機版導覽列 ++ --- */
+@media (max-width: 992px) {
+  /* 1. 強制隱藏漢堡選單按鈕 */
+  .mobile-nav-toggle {
+      display: none !important;
+  }
+
+  /* 2. 讓原本被隱藏的桌機版導覽列重新顯示 */
+  .main-nav {
+      display: block !important;
+  }
+  
+  /* 3. (可選) 讓導覽列在容器內置中，排版更好看 */
+  .sticky-nav .container {
+      justify-content: center;
+  }
+
+  /* 4. (可選) 允許導覽連結換行，避免在小螢幕上溢出 */
+  .main-nav ul {
+     flex-wrap: wrap;
+     justify-content: center;
+  }
+}

@@ -4,12 +4,34 @@
     <!-- 基礎 Meta 資訊 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2025 華碩普發萬元加碼方案 -《普發萬元 十倍 FUN 大》</title>
+    
+    <!-- ★ SEO 優化：標題與描述 ★ -->
+    <title>2025 華碩普發萬元加碼方案 | 普發萬元 十倍 FUN 大 - ASUS ROG 官方活動</title>
+    <meta name="description" content="參加 2025 華碩普發萬元加碼方案，購買指定 ASUS ROG 電腦零組件，登錄抽四大洲機票！揪團組隊再享中獎機會加倍，立即升級您的電競裝備，享受萬元優惠。">
+    <meta name="keywords" content="ASUS, ROG, 華碩, 普發萬元, 電競, 電腦零組件, 抽獎, 機票, 優惠活動, 2025">
+    
+    <!-- ★ SEO 優化：Canonical URL (指定標準網址) ★ -->
+    <link rel="canonical" href="https://www.asus.com/microsite/10000sp/tw/">
+
+    <!-- ★ SEO 優化：Open Graph (社群分享 - for Facebook, LINE) ★ -->
+    <meta property="og:title" content="2025 華碩普發萬元加碼方案 | 普發萬元 十倍 FUN 大">
+    <meta property="og:description" content="購買指定 ASUS ROG 零組件，登錄抽四大洲機票！揪團組隊享中獎機會加倍，立即升級您的電競裝備。">
+    <meta property="og:image" content="https://www.asus.com/microsite/10000sp/tw/img/KV.jpg">
+    <meta property="og:url" content="https://www.asus.com/microsite/10000sp/tw/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="ASUS 台灣">
+    <meta property="og:locale" content="zh_TW">
+
+    <!-- ★ SEO 優化：Twitter Card (社群分享 - for Twitter/X) ★ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="2025 華碩普發萬元加碼方案 | 普發萬元 十倍 FUN 大">
+    <meta name="twitter:description" content="購買指定 ASUS ROG 零組件，登錄抽四大洲機票！揪團組隊享中獎機會加倍。">
+    <meta name="twitter:image" content="https://www.asus.com/microsite/10000sp/tw/img/KV.jpg">
 
     <!-- Google Fonts 預載與載入 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@@400;500;700;900&display=swap" rel="stylesheet">
 
     <!-- 外部 CSS 樣式表 -->
     <link rel="stylesheet" href="style.css">
@@ -18,10 +40,44 @@
     <!-- 外部 JavaScript 函式庫 -->
     <script src="https://cdn.jsdelivr.net/npm/mailcheck@1.1.1/src/mailcheck.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+    <!-- ★ SEO 優化：結構化資料 (JSON-LD) ★ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "2025 華碩普發萬元加碼方案 - 普發萬元 十倍 FUN 大",
+      "startDate": "2025-11-14T00:12:00+08:00",  
+      "endDate": "2025-12-31T23:59:59+08:00",   
+      "eventAttendanceMode": "https://schema.org/OnlineEventAttendanceMode",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "location": {
+        "@type": "VirtualLocation",
+        "url": "https://www.asus.com/microsite/10000sp/tw/" 
+      },
+      "image": [
+        "https://www.asus.com/microsite/10000sp/tw/img/KV.jpg"
+       ],
+      "description": "參加2025華碩普發萬元加碼方案，購買指定ASUS ROG電腦零組件，登錄即可抽四大洲機票！揪團組隊更能享受中獎機會加倍，立即升級您的電競裝備，享受萬元優惠。",
+      "offers": {
+        "@type": "Offer",
+        "url": "https://www.asus.com/microsite/10000sp/tw/", 
+        "price": "0",
+        "priceCurrency": "TWD",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2025-11-14T00:00:00+08:00" 
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "ASUS (華碩電腦)",
+        "url": "https://www.asus.com/tw/"
+      }
+    }
+    </script>
 </head>
 <body>
 
-<!-- ++ [新增] 手機版導覽選單 ++ -->
+<!-- ++ 手機版導覽選單 ++ -->
 <div class="mobile-nav-overlay"></div>
 <nav class="mobile-nav">
     <button class="mobile-nav-close" aria-label="關閉選單">&times;</button>
@@ -39,7 +95,6 @@
 <!-- 區塊0: 固定導覽列 -->
 <header class="sticky-nav">
     <div class="container">
-        <!-- ++ [新增] 漢堡選單按鈕 ++ -->
         <button class="mobile-nav-toggle" aria-label="開啟選單">
             <span></span>
             <span></span>
@@ -59,18 +114,23 @@
 <!-- 主要內容 -->
 <main>
     <!-- 區塊1: Hero Banner -->
-    <section id="hero">
+    <section id="hero" aria-labelledby="main-heading">
         <div class="container container-wide">
-            <img src="./img/KV.jpg" alt="普發萬元 FUN 大十倍 - 華碩陪你玩世界" class="hero-main-visual">
+            <h1 id="main-heading" class="visually-hidden">2025 華碩普發萬元加碼方案 - 普發萬元 FUN 大十倍</h1>
+            <picture>
+                <source media="(max-width: 768px)" srcset="./img/KV_mobile.jpg">
+                <img src="./img/KV.jpg" alt="華碩普發萬元 FUN 大十倍活動 - 華碩陪你玩世界" class="hero-main-visual">
+            </picture>
         </div>
     </section>
 
-    <!-- 區塊3: 揪團攻略區 (註: 原始碼區塊順序為 1, 3, 2, 4, 5) -->
-    <section id="揪團辦法">
+    <!-- 區塊3: 揪團攻略區 -->
+    <section id="揪團辦法" aria-labelledby="how-to-join-heading">
         <div class="container">
-            <h2 class="section-title image-title">
-                <img src="./img/title/title_mainprize.png" alt="十倍放大 我號召升級" class="section-title-image">
-            </h2>
+            <div class="section-title image-title">
+               <h2 id="how-to-join-heading" class="visually-hidden">揪團攻略 - 十倍放大 我號召升級</h2>
+               <img src="./img/title/title_mainprize.png" alt="十倍放大 我號召升級" class="section-title-image" aria-hidden="true">
+            </div>
             <div class="prize-info-card image-fill">
                 <video class="prize-video-bg" autoplay loop muted playsinline>
                     <source src="./img/Prizebar_3.mp4" type="video/mp4">
@@ -78,28 +138,25 @@
                 </video>
                 <img src="./img/mainprize_title.png" alt="指定消費滿萬登錄抽 四大洲機票抵用金" class="prize-overlay-image">
                 <div class="visually-hidden">
-                    <h4>全員登錄抽大獎</h4>
+                    <h3>全員登錄抽大獎</h3>
                     <p>登錄抽「四大洲機票抵用金」,價值$120,000</p>
                 </div>
             </div>
 
             <div class="steps-grid-new">
-                <!-- Step 1 包含卡片與下方的說明欄位 -->
-                <div class="step-wrapper">
-                    <!-- Step 1 卡片 -->
+                <article class="step-wrapper">
                     <div class="event-card step-card">
                         <div class="step-header">
                             <span class="step-number">STEP 1</span>
                             <h4 class="step-title">成為隊長</h4>
                         </div>
                         <div class="step-content">
-                            <a href="#" id="openModalBtn" class="step1-background-link">
-                                <img src="./img/sharecode.png" alt="領取邀請碼" class="overlay-normal">
-                                <img src="./img/sharecode_hover.png" alt="領取邀請碼" class="overlay-hover">
+                            <a href="#" id="openModalBtn" class="step1-background-link" aria-label="領取邀請碼">
+                                <img src="./img/sharecode.png" alt="領取邀請碼按鈕" class="overlay-normal">
+                                <img src="./img/sharecode_hover.png" alt="領取邀請碼按鈕 hover 效果" class="overlay-hover">
                             </a>
                         </div>
                     </div>
-                    <!-- Step 1 的專屬說明欄位 -->
                     <div class="step-notes-section">
                         <h5>邀請碼機制說明</h5>
                         <div class="reward-tier">
@@ -114,9 +171,9 @@
                         <div class="remarks-wrapper">
                             <div class="remarks-toggle">
                                 <span>備註</span>
-                                <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                                    <path fill="none" d="M0 0h24v24H0z" />
-                                    <path d="M7 10l5 5 5-5z" />
+                                <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" focusable="false" aria-hidden="true">
+                                    <path fill="none" d="M0 0h24v24H0z"></path>
+                                    <path d="M7 10l5 5 5-5z"></path>
                                 </svg>
                             </div>
                             <div class="remarks-content collapsible">
@@ -128,37 +185,35 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <!-- Step 2 包含卡片與下方的說明欄位 -->
-                <div class="step-wrapper">
-                    <!-- Step 2 卡片 -->
+                <article class="step-wrapper">
                     <div class="event-card step-card">
                         <div class="step-header">
                             <span class="step-number">STEP 2</span>
                             <h4 class="step-title">號召集結</h4>
                         </div>
                         <div class="step-content">
-                            <a href="https://www.asus.com/tw/events/" target="_blank" rel="noopener noreferrer" class="step2-background-link">
-                                <img src="./img/cta_button.png" alt="立即登錄" class="overlay-normal">
-                                <img src="./img/cta_button_hover.png" alt="立即登錄" class="overlay-hover">
+                            <a href="https://www.asus.com/tw/events/" target="_blank" rel="noopener noreferrer" class="step2-background-link" aria-label="立即登錄">
+                                <img src="./img/cta_button.png" alt="立即登錄按鈕" class="overlay-normal">
+                                <img src="./img/cta_button_hover.png" alt="立即登錄按鈕 hover 效果" class="overlay-hover">
                             </a>
                         </div>
                     </div>
-                    <!-- Step 2 的專屬說明欄位 -->
                     <div class="step-notes-section">
                         <h5>指定商品 & 機票</h5>
-                        <p class="product-list" style="font-size: 1.2em; color:white">
+                        <p class="product-list">
                             <strong>以下系列全產品皆可參與本次活動</strong><br>主機板 / 顯示卡 / 機殼 / 電源供應器 / 水冷散熱器 / 螢幕 / ROG 鍵盤 / ROG 滑鼠 / ROG 耳機 / 路由器 / MiniPC / 投影機 / 外接盒 / 光碟機 / 手環手錶 / 電競椅 / ROG服飾
                         </p>
                         <h6>機票抵用金</h6>
                         <table>
+                            
                             <thead>
                                 <tr>
-                                    <th>亞洲</th>
-                                    <th>大洋洲</th>
-                                    <th>歐洲</th>
-                                    <th>北美洲</th>
+                                    <th scope="col">亞洲</th>
+                                    <th scope="col">大洋洲</th>
+                                    <th scope="col">歐洲</th>
+                                    <th scope="col">北美洲</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -173,9 +228,9 @@
                         <div class="remarks-wrapper">
                             <div class="remarks-toggle">
                                 <span>備註</span>
-                                <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                                    <path fill="none" d="M0 0h24v24H0z" />
-                                    <path d="M7 10l5 5 5-5z" />
+                                <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" focusable="false" aria-hidden="true">
+                                    <path fill="none" d="M0 0h24v24H0z"></path>
+                                    <path d="M7 10l5 5 5-5z"></path>
                                 </svg>
                             </div>
                             <div class="remarks-content collapsible">
@@ -188,19 +243,22 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </article>
             </div>
         </div>
     </section>
 
     <!-- 區塊2: 產品銷售區 -->
-    <section id="萬元精選">
+    <section id="萬元精選" aria-labelledby="product-select-heading">
         <div class="container">
-            <h2 class="section-title image-title">
-                <img src="./img/title/title_10000item.png" alt="好康萬 More Time" class="section-title-image">
-            </h2>
+            <div class="section-title image-title">
+                <h2 id="product-select-heading" class="visually-hidden">萬元精選 - 好康萬 More Time</h2>
+                <img src="./img/title/title_10000item.png" alt="好康萬 More Time" class="section-title-image" aria-hidden="true">
+                
+            </div>
             <div class="tabs-container">
-                <div class="tab-buttons">
+                <p class="bonus-description" style="font-size: 1.5em;">於全通路購買指定品項享限時優惠折扣,萬元戰備、戰力加倍!</p>
+                <div class="tab-buttons">                    
                     <button class="tab-button active" data-tab="tab1">萬元戰備區</button>
                     <button class="tab-button" data-tab="tab2">組合戰備區</button>
                 </div>
@@ -208,75 +266,76 @@
                 <div id="tab1" class="tab-content active">
                     <div class="swiper product-swiper" id="product-swiper-tab1">
                         <div class="swiper-wrapper">
+                            <!-- Swiper slides content -->
                             <div class="swiper-slide">
-                                <div class="event-card product-card">
-                                    <img src="./img/PD/tuf-rtx5070-o12g-gaming.jpg" alt="TUF Gaming GeForce RTX 5070 OC">
+                                <article class="event-card product-card">
+                                    <img src="./img/PD/tuf-rtx5070-o12g-gaming.jpg" alt="TUF Gaming GeForce RTX 5070 OC 顯示卡">
                                     <div class="card-tag">顯示卡</div>
                                     <div class="product-card-info">
-                                        <h4>TUF Gaming GeForce RTX™ 5070 12GB GDDR7 OC 超頻版</h4>
+                                        <h3>TUF Gaming GeForce RTX™ 5070 12GB GDDR7 OC 超頻版</h3>
                                         <p class="price">$20,990</p>
                                     </div>
-                                </div>
+                                </article>
                             </div>
                             <div class="swiper-slide">
-                                <div class="event-card product-card">
-                                    <img src="./img/PD/rog-crosshair-x870e-apex.jpg" alt="ROG CROSSHAIR X870E APEX">
+                                <article class="event-card product-card">
+                                    <img src="./img/PD/rog-crosshair-x870e-apex.jpg" alt="ROG CROSSHAIR X870E APEX 主機板">
                                     <div class="card-tag">主機板</div>
                                     <div class="product-card-info">
-                                        <h4>ROG CROSSHAIR X870E APEX</h4>
+                                        <h3>ROG CROSSHAIR X870E APEX</h3>
                                         <p class="price">$19,999</p>
                                     </div>
-                                </div>
+                                </article>
                             </div>
                             <div class="swiper-slide">
-                                <div class="event-card product-card">
-                                    <img src="./img/PD/asus-airvision-m1.jpg" alt="AirVision M1">
+                                <article class="event-card product-card">
+                                    <img src="./img/PD/asus-airvision-m1.jpg" alt="AirVision M1 智慧眼鏡">
                                     <div class="card-tag">智慧眼鏡</div>
                                     <div class="product-card-info">
-                                        <h4>AirVision M1</h4>
+                                        <h3>AirVision M1</h3>
                                         <p class="price">$12,990</p>
                                     </div>
-                                </div>
+                                </article>
                             </div>
                             <div class="swiper-slide">
-                                <div class="event-card product-card">
-                                    <img src="./img/PD/zenbeam-l2.jpg" alt="ZenBeam L2">
+                                <article class="event-card product-card">
+                                    <img src="./img/PD/zenbeam-l2.jpg" alt="ZenBeam L2 投影機">
                                     <div class="card-tag">投影機</div>
                                     <div class="product-card-info">
-                                        <h4>ZenBeam L2</h4>
+                                        <h3>ZenBeam L2</h3>
                                         <p class="price">$12,990</p>
                                     </div>
-                                </div>
+                                </article>
                             </div>
                             <div class="swiper-slide">
-                                <div class="event-card product-card">
-                                    <img src="./img/PD/rog-ryujin-iii-extreme-white.jpg" alt="ROG RYUJIN III 360 ARGB Extreme">
+                                <article class="event-card product-card">
+                                    <img src="./img/PD/rog-ryujin-iii-extreme-white.jpg" alt="ROG RYUJIN III 360 ARGB Extreme 水冷散熱器">
                                     <div class="card-tag">水冷</div>
                                     <div class="product-card-info">
-                                        <h4>ROG RYUJIN III 360 ARGB Extreme 白龍神三代</h4>
+                                        <h3>ROG RYUJIN III 360 ARGB Extreme 白龍神三代</h3>
                                         <p class="price">$9,999</p>
                                     </div>
-                                </div>
+                                </article>
                             </div>
                             <div class="swiper-slide">
-                                <div class="event-card product-card">
-                                    <img src="./img/PD/THORIII1000W.jpg" alt="ROG THOR III 1000W 白金牌">
+                                <article class="event-card product-card">
+                                    <img src="./img/PD/THORIII1000W.jpg" alt="ROG THOR III 1000W 白金牌電源供應器">
                                     <div class="card-tag">電源</div>
                                     <div class="product-card-info">
-                                        <h4>ROG THOR III 1000W 白金牌</h4>
+                                        <h3>ROG THOR III 1000W 白金牌</h3>
                                         <p class="price">$9,999</p>
                                     </div>
-                                </div>
+                                </article>
                             </div>
                             <div class="swiper-slide">
-                                <div class="event-card product-card">
+                                <article class="event-card product-card">
                                     <img src="./img/PD/rog-falcata.jpg" alt="ROG Falcata 分離式磁軸電競鍵盤">
                                     <div class="card-tag">鍵盤</div>
                                     <div class="product-card-info">
-                                        <h4>ROG Falcata 分離式磁軸電競鍵盤</h4>
+                                        <h3>ROG Falcata 分離式磁軸電競鍵盤</h3>
                                         <p class="price">$9,999</p>
                                     </div>
-                                </div>
+                                </article>
                             </div>
                         </div>
                         <div class="swiper-button-next"></div>
@@ -286,46 +345,47 @@
                 <!-- Tab 2: 組合戰備區 -->
                 <div id="tab2" class="tab-content">
                     <div class="static-product-grid">
-                        <div class="event-card product-card">
-                            <img src="img/PD/gr701+ryuoiv+thorii.jpg" alt="ROG Hyperion GR701 + THOR III + RYUO IV">
+                        <article class="event-card product-card">
+                            <img src="img/PD/gr701+ryuoiv+thorii.jpg" alt="ROG Hyperion GR701, THOR III, RYUO IV 頂級信仰組合">
                             <div class="card-tag">頂級信仰</div>
                             <div class="product-card-info">
-                                <h4>ROG Hyperion GR701 創世神 + THOR III 1000W + RYUO IV SLC 360 ARGB</h4>
+                                <h3>ROG Hyperion GR701 創世神 + THOR III 1000W + RYUO IV SLC 360 ARGB</h3>
                                 <p class="price">$30,000</p>
                             </div>
-                        </div>
-                        <div class="event-card product-card active">
-                            <img src="img/PD/gx601s+strixaura+strxi360.jpg" alt="ROG STRIX HELIOS II + AURA 1000W + LC III 360">
+                        </article>
+                        <article class="event-card product-card active">
+                            <img src="img/PD/gx601s+strixaura+strxi360.jpg" alt="ROG STRIX HELIOS II, AURA 1000W, LC III 360 高效組合">
                             <div class="card-tag">高效組合</div>
                             <div class="product-card-info">
-                                <h4>ROG STRIX HELIOS II + ROG STRIX AURA 1000W + STRIX LC III 360 ARGB LCD</h4>
+                                <h3>ROG STRIX HELIOS II + ROG STRIX AURA 1000W + STRIX LC III 360 ARGB LCD</h3>
                                 <p class="price">$20,000</p>
                             </div>
-                        </div>
-                        <div class="event-card product-card">
-                            <img src="img/PD/pa602+prime850.jpg" alt="ProArt PA602 + PRIME 850W">
+                        </article>
+                        <article class="event-card product-card">
+                            <img src="img/PD/pa602+prime850.jpg" alt="ProArt PA602 與 PRIME 850W 創作者優選組合">
                             <div class="card-tag">創作者優選</div>
                             <div class="product-card-info">
-                                <h4>ProArt PA602 木質透側版 + PRIME 850W 金牌</h4>
+                                <h3>ProArt PA602 木質透側版 + PRIME 850W 金牌</h3>
                                 <p class="price">$10,000</p>
                             </div>
-                        </div>
+                        </article>
                     </div>
                 </div>
             </div>
-            <p class="bonus-description" style="font-size: 1.5em;">於全通路購買指定品項享限時優惠折扣,萬元戰備、戰力加倍!</p>
+           
         </div>
     </section>
 
     <!-- 區塊4: 登錄加碼區 -->
-    <section id="登錄好禮">
+    <section id="登錄好禮" aria-labelledby="register-bonus-heading">
         <div class="container">
-            <h2 class="section-title image-title">
-                <img src="./img/title/title_register.png" alt="雙享好禮 登錄專區" class="section-title-image">
-            </h2>
-            <!-- 第一行: Powered by ASUS -->
-            <div class="bonus-section-row">
-                <h1 style="color: white">【Powered by ASUS 零組件登錄送】</h1><br>
+            <div class="section-title image-title">
+                <h2 id="register-bonus-heading" class="visually-hidden">登錄好禮 - 雙享好禮 登錄專區</h2>
+                <img src="./img/title/title_register.png" alt="雙享好禮 登錄專區" class="section-title-image" aria-hidden="true">
+            </div>
+            
+            <article class="bonus-section-row">
+                <h3>【Powered by ASUS 零組件登錄送】</h3>
                 <p class="bonus-description">活動期間於<a href="https://asus-my.sharepoint.com/:x:/p/ives_lai/IQCRcxwf7iTAT5cxaASQ4NS7AR1ZRs5YTTFCf20331Qg2v8?e=X3FAUh" target="_blank" rel="noopener noreferrer">指定通路</a>,單筆消費購買下列指定系列組合,登錄審核成功即贈<br> <strong> 「TUF Gaming 限定版行李箱」</strong>(價值$6,999) <br>或 <strong>「ASUS 旅行三件組」</strong>(價值$3,500) <br>* <span style="font-size: 0.8em;">含 TUF Gaming 外套 + ProArt 硬殼包 + ProArt 旅行枕!</span><br><br>各零組件需購買至少一件指定品項方符合贈送資格,數量有限,送完為止</p>
                 <div style="text-align: center; margin-bottom: 50px;">
                     <a href="https://www.asus.com/tw/events/infoM/activity_10000SP_giveaway" target="_blank" rel="noopener noreferrer" class="cta-button primary">
@@ -335,7 +395,7 @@
                 <div class="pba-grid">
                     <!-- ROG 系列組合 -->
                     <div class="pba-column event-card">
-                        <img src="img/giveaway/ROG_PBA.jpg" alt="ROG 系列組合">
+                        <img src="img/giveaway/ROG_PBA.jpg" alt="ROG 系列組合示意圖">
                         <div class="pba-content">
                             <div class="pba-title-wrapper">
                                 <div class="pba-title-content">
@@ -353,13 +413,11 @@
                     </div>
                     <!-- ASUS 系列組合 -->
                     <div class="pba-column event-card">
-                        <img src="img/giveaway/ASUS_PBA.jpg" alt="ASUS 系列組合">
+                        <img src="img/giveaway/ASUS_PBA.jpg" alt="ASUS 系列組合示意圖">
                         <div class="pba-content">
                             <div class="pba-title-block">
                                 <div class="pba-title-content">
                                     <p class="gift-prefix">購買以下 ASUS 指定系列組合 贈 <span class="highlight">ASUS 旅行三件組</span></p>
-                                </div>
-                                <div class="gift-combo-details">
                                 </div>
                             </div>
                             <ul class="series-list">
@@ -372,25 +430,24 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- 第二行: 單品登錄 -->
-            <div class="bonus-section-row">
-                <h1 style="color: white">【單品登錄送&登錄抽】</h1><br>
+            </article>
+            
+            <article class="bonus-section-row">
+                <h3>【單品登錄送&登錄抽】</h3>
                 <p class="bonus-description">活動期間購買以下任一指定系列產品,登錄審核成功即贈「ASUS Point 10,000 點」<br>再抽 <strong>「ROG Strix OLED XG34WCDG 電競螢幕」</strong> (價值$24,900) <br><strong> 「ROG Falchion Ace HFX 磁軸電競鍵盤」</strong> (價值$6,490) ! </p>
                 <div style="text-align: center; margin-bottom: 50px;">
                     <a href="https://www.asus.com/tw/events/infoM/activity_10000SP_giveaway" target="_blank" rel="noopener noreferrer" class="cta-button primary">
                         立即登錄
                     </a>
                 </div>
-                <!-- ++ 更新:從Tabs 改為 Accordion 摺疊列表 ++ -->
                 <div class="product-accordion-container">
-                    <!-- 主機板 -->
+                    <!-- Accordion items -->
                     <div class="accordion-item">
                         <button class="accordion-header">
                             <span>主機板</span>
-                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-                                <path fill="none" d="M0 0h24v24H0z" />
-                                <path d="M7 10l5 5 5-5z" />
+                            <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" focusable="false" aria-hidden="true">
+                                <path fill="none" d="M0 0h24v24H0z"></path>
+                                <path d="M7 10l5 5 5-5z"></path>
                             </svg>
                         </button>
                         <div class="accordion-content">
@@ -458,19 +515,17 @@
                                 <div><span>迷你電腦</span><span>ROG NUC (2025)</span></div>
                                 <div><span>投影機</span><span>ZenBeam L2, AirVision M1</span></div>
                             </div>
-                        </div>
+                        </article>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                </section>
 
     <!-- 區塊5: 產品優惠清單 -->
     <section id="product-deals">
         <div class="container">
-            <h2 class="section-title image-title">
-                <img src="./img/title/title_promotion.png" alt="優惠清單" class="section-title-image">
-            </h2>
+            <div class="section-title image-title">
+                <h2 id="deals-list-heading" class="visually-hidden">產品優惠清單</h2>
+                <img src="./img/title/title_promotion.png" alt="優惠清單" class="section-title-image" aria-hidden="true">
+            </div>
             <p class="bonus-description" style="font-size: 1.5em;">活動期間立享限定優惠,升級戰備最佳時刻!</p>
             <div class="category-filters">
                 <button class="filter-button active" data-filter="motherboard">主機板</button>
@@ -732,7 +787,7 @@
 </div>
 
 <!-- 隱形 reCAPTCHA 元素 -->
-<div class="g-recaptcha" data-sitekey="6LdYuQgsAAAAAlajzBJ-avOKf776rPhioj7krHmi" data-callback="submitFormWithToken" data-size="invisible"></div>
+<div class="g-recaptcha" data-sitekey="6LdYuQgsAAAAAIajzBJ-avOKf776rPhioj7krHmi" data-callback="submitFormWithToken" data-size="invisible"></div>
 
 <!-- 頁尾載入的 JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
