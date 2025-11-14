@@ -1852,3 +1852,47 @@ main a:not(.cta-button):not(.step1-background-link):not(.step2-background-link):
      justify-content: center;
   }
 }
+
+/* --- 網站資訊聲明橫幅 (固定在底部) --- */
+#site-disclaimer {
+  position: fixed; 
+  bottom: 0;       
+  left: 0;
+  right: 0;
+  z-index: 1500;   
+  
+  background-color: #1A1A1A; 
+  backdrop-filter: blur(8px); 
+  -webkit-backdrop-filter: blur(8px);
+  
+  color: #ccc;
+  padding: 12px 20px;
+  text-align: center;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  
+  border-top: 1px solid rgba(var(--gold-rgb), 0.2); 
+  transition: transform 0.3s ease-in-out; 
+}
+
+#site-disclaimer p {
+  margin: 0;
+  padding: 0;
+}
+
+#site-disclaimer strong {
+  color: #e0e0e0;
+  margin-right: 8px;
+}
+
+/* --- RWD: 響應式調整 - 網站資訊聲明橫幅 --- */
+@media (max-width: 768px) {
+  #site-disclaimer {
+      font-size: 0.75rem; 
+      padding: 10px 15px;   
+  }
+
+  body {
+      padding-bottom: 70px; 
+  }
+}

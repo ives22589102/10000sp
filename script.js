@@ -6,6 +6,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // 宣告 Swiper 實例變數
     let swiper1;
+    let swiper1_plus;
 
     // ++ [新增] 手機版導覽列邏輯 ++
     const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
@@ -94,6 +95,14 @@ document.addEventListener('DOMContentLoaded', function() {
         navigation: {
             nextEl: '#product-swiper-tab1 .swiper-button-next',
             prevEl: '#product-swiper-tab1 .swiper-button-prev',
+        },
+    });
+
+    swiper1_plus = new Swiper('#product-swiper-tab1-plus', {
+        ...swiperOptions,
+        navigation: {
+            nextEl: '#product-swiper-tab1-plus .swiper-button-next',
+            prevEl: '#product-swiper-tab1-plus .swiper-button-prev',
         },
     });
 
